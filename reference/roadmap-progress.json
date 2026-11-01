@@ -1,7 +1,7 @@
 {
-  "version": "0.6.0-phase5",
-  "completed_weight_percent": 64,
-  "completed_milestones": 5,
+  "version": "0.7.0-phase6",
+  "completed_weight_percent": 82,
+  "completed_milestones": 6,
   "total_milestones": 8,
   "roadmap": [
     {
@@ -38,7 +38,7 @@
       "phase": "۶",
       "title": "موتور شبیه‌سازی و تحلیل‌های چهارگانه",
       "weight": 18,
-      "status": "pending"
+      "status": "completed"
     },
     {
       "phase": "۷",
