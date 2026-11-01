@@ -1,7 +1,7 @@
 {
-  "version": "0.4.0-phase3",
-  "completed_weight_percent": 38,
-  "completed_milestones": 3,
+  "version": "0.5.0-phase4",
+  "completed_weight_percent": 44,
+  "completed_milestones": 4,
   "total_milestones": 8,
   "roadmap": [
     {
@@ -26,7 +26,7 @@
       "phase": "۴",
       "title": "صفحه نخست، تاریخچه، نصب و دانلود",
       "weight": 6,
-      "status": "pending"
+      "status": "completed"
     },
     {
       "phase": "۵",

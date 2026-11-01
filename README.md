@@ -1,131 +1,127 @@
 # ⚡ Ohm My Vibe!
 
-### A little circuit theory, a little vibe coding, and a lot of learning.
+**Circuit theory meets vibe coding.**
 
-**An unofficial, offline-first, Persian interactive learning workspace inspired by PSpice and OrCAD Capture.**
+An **unofficial, offline-first, Persian-language interactive learning workspace** inspired by PSpice and OrCAD Capture, built with HTML, CSS, and vanilla JavaScript.
 
-**Status:** Work in Progress  
-**Version:** 0.4.0  
-**Roadmap Progress:** 38%  
-**Stack:** HTML, CSS, JavaScript
+![Version](https://img.shields.io/badge/version-0.5.0-blue) ![Status](https://img.shields.io/badge/status-pre--release-orange) ![Roadmap](https://img.shields.io/badge/roadmap-44%25-purple) ![License](https://img.shields.io/badge/license-not%20selected-lightgrey)
 
-[![Download v0.4.0 ZIP](https://img.shields.io/badge/Download-v0.4.0%20ZIP-2ea44f?style=for-the-badge)](https://github.com/maklf-dev/ohm-my-vibe/releases/download/v0.4.0/PSpice_OrCAD_Offline_Phase3_v0.4.0.zip)
+[![Download v0.5.0](https://img.shields.io/badge/Download-v0.5.0%20ZIP-2ea44f?style=for-the-badge&logo=github)](https://github.com/maklf-dev/ohm-my-vibe/releases/download/v0.5.0/PSpice_OrCAD_Offline_Phase4_v0.5.0.zip)
 
-[Browse all releases](https://github.com/maklf-dev/ohm-my-vibe/releases) · [Report an issue](https://github.com/maklf-dev/ohm-my-vibe/issues)
+**[All releases](https://github.com/maklf-dev/ohm-my-vibe/releases)** · **[Report an issue](https://github.com/maklf-dev/ohm-my-vibe/issues)**
 
-> **Early Development Release:** This project is not finished software, an official Cadence product, or a general-purpose SPICE simulator.
+> **Work in progress:** Version 0.5.0 completes Phase 4 of an eight-phase roadmap (44% weighted progress). This is a teaching prototype, **not** an official Cadence product or a complete SPICE simulator.
 
-## 📖 About
+## About
 
-**Ohm My Vibe!** is a browser-based learning project that recreates selected interface concepts and workflows associated with PSpice and OrCAD Capture.
+Ohm My Vibe! helps Persian-speaking learners explore circuit-design concepts and familiar PSpice/OrCAD Capture-style workflows through a browser-based interface and guided tutorials. The project runs locally without a backend or build step.
 
-It combines a desktop-inspired interface with Persian, step-by-step interactive tutorials to help beginners understand electronic circuit-design concepts.
+## What's new in v0.5.0: Phase 4
 
-The project uses vanilla HTML, CSS, and JavaScript. It requires no backend, build system, package installation, or mandatory internet connection.
+- **New Persian welcome screen** with three sections: Introduction, Download & Installation, and Resources.
+- **Software background and timeline**, including an explanation of Capture versus PSpice.
+- **Interactive six-step installation guide** with two official software options.
+- **Official external resources** for Cadence OrCAD academic offerings, PSpice for TI, and a historical FlowCAD 17.2 guide.
+- **Navigation between the welcome screen, PSpice A/D-inspired workspace, Capture-inspired interface, and learning center.**
+- **Installation-topic completion and summary** integrated with the existing guided-learning experience.
+- **Offline reference atlas** and locally bundled reference images.
+- Preserved earlier Phase 1–3 functionality and the legacy RC example.
 
-The current interface is primarily inspired by the OrCAD Capture Lite 17.2 learning environment.
+External installation and documentation links require internet access. **No official PSpice/OrCAD installers are included.** Current official software may differ from the historical 17.2 interface.
 
-## ✨ Current Features
+## Existing learning features
 
-- PSpice / OrCAD Capture-inspired browser interface.
-- Floating Persian learning center.
-- 16 educational topics across 5 categories.
-- 57 guided steps with interface highlighting.
-- Tutorial search, navigation, progress indicators, and lesson summaries.
-- Relevant formulas and calculation notes.
-- Movable and collapsible learning panel.
-- Optional progress persistence using browser local storage, where supported.
-- Limited interactive project and schematic workflows.
-- Preserved legacy RC circuit demonstration with transient-analysis plotting.
-- Self-contained offline HTML version.
-- Detailed Persian development and testing reports.
+- Persian floating learning center with **16 topics** and guided navigation.
+- UI highlighting, topic progress, explanations, and lesson summaries.
+- Capture-inspired project and schematic UI workflows (partially implemented).
+- A preserved **legacy RC transient-analysis demonstration**, separate from the new workspace.
+- Modular development files and a bundled standalone HTML entry point.
 
-**Note:** Some tutorials are educational previews. Their corresponding application workflows are not yet fully implemented.
+**Important:** The new Capture-inspired environment does not yet contain a general-purpose SPICE simulation engine. The legacy RC demo is limited to its educational example.
 
-## 📥 Download and Installation
+## Quick start
 
-1. Download the current ZIP from the button above or from the Releases page.
-2. Extract the archive while preserving its folder structure.
-3. Open `PSpice-Offline/index-standalone.html` in Chrome or Edge.
-4. Launch the Persian Learning Center and choose a topic.
-5. Follow the guided instructions.
-6. To explore the earlier RC demo, open `PSpice-Offline/legacy/index-standalone.html`.
+1. Download the ZIP using the button above, or open [Releases](https://github.com/maklf-dev/ohm-my-vibe/releases).
+2. **Extract the entire archive**; the Resources tab uses relative image paths.
+3. Open `PSpice-Offline/index-standalone.html` in a current Chrome or Edge browser.
+4. Explore the Introduction, Download & Installation, and Resources tabs.
+5. Enter the simulated workspace or open the learning center to follow tutorials.
+6. For the older RC example, open `PSpice-Offline/legacy/index-standalone.html`.
 
-No Node.js, npm, or installer is required.
+No Node.js, npm, backend, or local server is required by the packaged application design. However, direct `file://` execution and local image loading have **not** been independently verified in the supplied browser test environment and can vary with browser security settings.
 
-Direct `file://` execution and persistent local storage still require wider compatibility testing on target browsers.
+## Project structure
 
-## 🗂️ Project Structure
+```text
+PSpice-Offline/
+├── index-standalone.html       # Recommended bundled entry point
+├── index.html                  # Modular development entry
+├── welcome.css / welcome.js   # Phase 4 welcome and installation UI
+├── welcome.html.frag
+├── capture.css / capture.js   # Capture-inspired workspace
+├── tutorial-manager.css / tutorial-manager.js
+├── examples/                  # Example circuit data
+├── legacy/                    # Previous RC demonstration
+├── reference/                 # Reference images, reports and metadata
+├── reference-atlas.html
+├── vendor/                    # Driver.js placeholder assets
+├── README-FA.md
+├── PHASE-4-REPORT-FA.md
+└── PHASE-4-TEST-REPORT-FA.md
+```
 
-- `index-standalone.html`: self-contained offline application.
-- `index.html`: modular development entry point.
-- `capture.js` and `capture.css`: main workspace behavior and styling.
-- `tutorial-manager.js` and `tutorial-manager.css`: guided tutorials, progress, and learning center.
-- `examples/`: sample circuit data.
-- `legacy/`: preserved RC simulation demonstration.
-- `reference/`: research and visual references, subject to redistribution rights.
-- `reference-atlas.html`: reference browsing page.
-- `README-FA.md`: Persian release documentation.
-- `PHASE-3-REPORT-FA.md`: implementation details.
-- `PHASE-3-TEST-REPORT-FA.md`: test notes.
+## Roadmap
 
-## 🧭 Development Roadmap
-
-| Phase | Milestone | Status |
+| Phase | Focus | Status |
 |---|---|---|
-| 1 | Source inventory and baseline | Complete |
-| 2 | PSpice / Capture interface reconstruction | Complete |
+| 1 | Baseline and source inventory | Complete |
+| 2 | Capture-inspired interface | Complete |
 | 3 | Persian interactive learning center | Complete |
-| 4 | Welcome page, history, and installation guidance | Planned |
-| 5 | Extended circuit exercises and libraries | Planned |
-| 6 | Expanded simulation and analysis workflows | Planned |
-| 7 | Driver.js integration and improved learning content | Planned |
-| 8 | Offline testing and release hardening | Planned |
+| 4 | Welcome screen, software history, installation guide and resources | **Complete (v0.5.0)** |
+| 5 | Project creation, component libraries and 200 V resistor circuit | Planned |
+| 6 | Extended simulation and analysis workflows | Planned |
+| 7 | Driver.js integration and expanded lessons | Planned |
+| 8 | Offline validation and release hardening | Planned |
 
-**Current weighted roadmap completion: 38%.**
+**Weighted roadmap progress: 44%.** This is a development milestone measure, not a production-readiness score.
 
-This is an internal milestone measurement, not a production-readiness score.
+## Testing and known limitations
 
-## ⚠️ Known Limitations
+Phase 4's supplied test report records Chromium interaction checks at **1280×720**, **1366×768**, and **1920×1080**, including welcome tabs, six-step guidance, learning-center navigation, and a regression check of project creation. No JavaScript errors were observed in those scenarios.
 
-- No general-purpose SPICE engine in the new workspace.
-- Native `.opj` and `.dsn` import/export is not supported.
-- Advanced analyses are partially represented by educational previews.
-- The legacy RC example is not a generalized simulation engine.
-- The bundled Driver.js files are placeholders. The current Persian tutorial system uses a custom offline engine.
-- Browser-specific storage and local-file behavior require additional testing.
-- UI fidelity, accessibility, and simulation coverage are still evolving.
+The report also states that direct local-file browsing was blocked in its test environment; real-user `file://` execution was therefore **not confirmed**. The local images were validated as files but not visually loaded in that browser test. Pixel-perfect comparison against official OrCAD 17.2 was not performed.
 
-## 🧪 Testing
+Additional limitations:
+- No full SPICE engine or complete native OrCAD project compatibility.
+- The previous RC demo is not integrated into the new Capture workspace.
+- The packaged Driver.js files remain placeholders; a custom offline tutorial engine is currently used.
+- Future phases will expand circuit libraries, connections, component properties, and analyses.
 
-The Phase 3 test report documents Chromium-based checks at 1280×720, 1366×768, and 1920×1080.
+See [Phase 4 implementation report](PHASE-4-REPORT-FA.md) and [Phase 4 test report](PHASE-4-TEST-REPORT-FA.md).
 
-Testing covered educational navigation, topic completion, selected interface actions, and regression checks against the previous RC demonstration.
+## Official external references
 
-These checks do not establish full simulator accuracy or universal browser compatibility.
+- [Cadence OrCAD Academic](https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad/academic.html)
+- [PSpice for TI](https://www.ti.com/tool/PSPICE-FOR-TI)
+- [FlowCAD PSpice 17.2 Lite Quick Start (historical PDF)](https://www.flowcad.de/AN/FlowCAD_AN_Quick_Start_PSpice_172_Lite.pdf)
+- [Cadence PSpice for TI FAQs](https://www5.cadence.com/pspice-for-ti-faqs)
 
-For detailed results, see [Phase 3 Test Report](PHASE-3-TEST-REPORT-FA.md).
+These are third-party resources, not bundled software.
 
-## 🤝 Feedback and Contributions
+## Feedback and contributions
 
-Bug reports, accessibility suggestions, educational corrections, and implementation feedback are welcome through GitHub Issues.
+Issues, bug reports, accessibility improvements, and educational corrections are welcome. Please do not submit proprietary binaries or unlicensed assets.
 
-Please discuss major changes before submitting extensive contributions. Do not submit proprietary executables or unlicensed third-party assets.
+## License and trademarks
 
-## ⚖️ Legal Notice
+**No open-source license has been selected yet.** Unless otherwise stated, the repository's original code is not offered under a general reuse or redistribution license.
 
-This is an independent, unofficial educational reconstruction and is **not affiliated with, sponsored by, endorsed by, or approved by Cadence Design Systems, Inc.**
+This is an **independent, unofficial educational project** and is not affiliated with, endorsed by, or sponsored by Cadence Design Systems. PSpice, OrCAD, and Cadence are names/trademarks of their respective owners. References to those products are for identification and educational context.
 
-Cadence, PSpice, and OrCAD are trademarks of their respective owners. Their names are used for identification and educational reference.
+Some reference images originate from supplied educational materials; their redistribution rights should be checked before publishing the archive publicly. A future code license would not automatically cover third-party assets.
 
-No official Cadence executable or proprietary simulation engine is distributed with this project.
+## Author
 
-Some reference imagery originates from educational materials and may require additional permission before redistribution.
+Made with curiosity, circuits, and a little vibe coding by **[maklf-dev](https://github.com/maklf-dev)**.
 
-**License status:** An open-source license has not yet been selected. Public availability does not grant unrestricted reuse or redistribution rights. Code licensing and third-party asset rights should be reviewed separately.
-
-## 👨‍💻 Author
-
-Built with curiosity, circuit theory, and a little vibe coding by **[maklf-dev](https://github.com/maklf-dev)**.
-
-If you find the project useful, consider giving the repository a ⭐.
+If this learning project is useful, consider giving it a ⭐.
