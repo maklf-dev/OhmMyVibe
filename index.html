@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="fa"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>PSpice / OrCAD Capture 17.2 — Offline Educational Workspace</title><link rel="stylesheet" href="./capture.css"><link rel="stylesheet" href="./tutorial-manager.css"></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true"><symbol id="ic-new" viewBox="0 0 20 20"><path d="M4 2h9l4 4v12H4z" fill="#fafafa" stroke="#4e5369"/><path d="M13 2v4h4" fill="none" stroke="#4e5369"/><path d="M6 10h9M6 13h8" stroke="#8ba1be"/></symbol>
+<symbol id="ic-open" viewBox="0 0 20 20"><path d="M1 6h7l3 3h8l-3 9H3z" fill="#f2c64e" stroke="#77622e"/><path d="M3 6V3h7l2 4" fill="none" stroke="#796334"/></symbol>
+<symbol id="ic-save" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" fill="#3c559c" stroke="#33406a"/><rect x="5" y="3" width="10" height="6" fill="#f0f0f0"/><rect x="5" y="12" width="10" height="5" fill="#fdfefe"/><path d="M12 4v4" stroke="#333"/></symbol>
+<symbol id="ic-print" viewBox="0 0 20 20"><path d="M5 1h10v6H5z" fill="#d0d7dc" stroke="#646d78"/><rect x="2" y="7" width="16" height="8" rx="1" fill="#8998a8" stroke="#536579"/><path d="M5 12h10v7H5z" fill="#fff" stroke="#777"/><path d="M7 15h6" stroke="#888"/></symbol>
+<symbol id="ic-cut" viewBox="0 0 20 20"><path d="M4 3L16 18 M16 3L4 18" stroke="#465c76" stroke-width="1.7"/><circle cx="4" cy="3" r="2" fill="#b9c1d3" stroke="#666"/><circle cx="16" cy="3" r="2" fill="#b9c1d3" stroke="#666"/></symbol>
+<symbol id="ic-copy" viewBox="0 0 20 20"><path d="M2 2h11v13H2zM7 6h11v13H7z" fill="#f8f9fc" stroke="#44526c"/><path d="M9 10h7M9 13h7" stroke="#859ab3"/></symbol>
+<symbol id="ic-paste" viewBox="0 0 20 20"><rect x="4" y="3" width="13" height="16" fill="#f9f9f9" stroke="#606e7b"/><rect x="7" y="1" width="7" height="5" fill="#bbccad" stroke="#5a6c4b"/><path d="M6 9h9M6 12h9M6 15h6" stroke="#7e96aa"/></symbol>
+<symbol id="ic-undo" viewBox="0 0 20 20"><path d="M8 4 2 10l6 5v-4c5-2 8 0 10 5 0-9-5-13-10-9z" fill="#5768c1" stroke="#304384"/></symbol>
+<symbol id="ic-redo" viewBox="0 0 20 20"><path d="m12 4 6 6-6 5v-4C7 9 4 11 2 16c0-9 5-13 10-9z" fill="#888cb4" stroke="#42527c"/></symbol>
+<symbol id="ic-zin" viewBox="0 0 20 20"><circle cx="8" cy="8" r="6" fill="#e9f6ff" stroke="#3e6191" stroke-width="1.8"/><path d="M8 4v8M4 8h8m0 4 6 6" stroke="#245896" stroke-width="1.6"/></symbol>
+<symbol id="ic-zout" viewBox="0 0 20 20"><circle cx="8" cy="8" r="6" fill="#e9f6ff" stroke="#3e6191" stroke-width="1.8"/><path d="M4 8h8m0 4 6 6" stroke="#245896" stroke-width="1.6"/></symbol>
+<symbol id="ic-fit" viewBox="0 0 20 20"><path d="M2 7V2h5m6 0h5v5m0 6v5h-5m-6 0H2v-5" fill="none" stroke="#385aa1" stroke-width="2"/><path d="M6 6 8 8m6-2-2 2m2 6-2-2m-6 2 2-2" stroke="#748ebc"/></symbol>
+<symbol id="ic-area" viewBox="0 0 20 20"><path d="M3 3h14v14H3z" stroke="#7d8d9e" stroke-dasharray="2 2" fill="#e8f3f9"/><path d="M7 13h7M11 9v8" stroke="#3769a5"/></symbol>
+<symbol id="ic-select" viewBox="0 0 20 20"><path d="M4 2v15l5-5 3 6 3-2-3-6 6-1z" fill="#f5f9fc" stroke="#344357"/></symbol>
+<symbol id="ic-part" viewBox="0 0 20 20"><rect x="2" y="7" width="16" height="6" fill="#b5cad5" stroke="#456377"/><path d="M7 2v5m6-5v5M7 13v5m6-5v5" stroke="#63786c" stroke-width="1.8"/></symbol>
+<symbol id="ic-wire" viewBox="0 0 20 20"><path d="M2 18V3h15" fill="none" stroke="#34629b" stroke-width="2"/><circle cx="2" cy="18" r="2" fill="#c6a32c"/><circle cx="17" cy="3" r="2" fill="#c6a32c"/></symbol>
+<symbol id="ic-ground" viewBox="0 0 20 20"><path d="M10 1v8M2 9h16M5 13h10M8 17h4" stroke="#37668b" stroke-width="1.65"/></symbol>
+<symbol id="ic-bus" viewBox="0 0 20 20"><path d="M2 18V3h15" stroke="#2e6c82" stroke-width="3.3" fill="none"/><circle cx="2" cy="18" r="2" fill="#344c91"/></symbol>
+<symbol id="ic-junction" viewBox="0 0 20 20"><path d="M1 10h18M10 1v18" stroke="#375e87"/><circle cx="10" cy="10" r="3.5" fill="#d34747"/></symbol>
+<symbol id="ic-power" viewBox="0 0 20 20"><path d="M10 17V8M3 8l7-6 7 6z" fill="#dfe9fa" stroke="#2865a0"/><circle cx="10" cy="18" r="2" fill="#c42c2c"/></symbol>
+<symbol id="ic-rotate" viewBox="0 0 20 20"><path d="M16 8A7 7 0 1 0 17 14" fill="none" stroke="#415cb1" stroke-width="2"/><path d="M12 8h6V2" fill="none" stroke="#415cb1" stroke-width="2"/></symbol>
+<symbol id="ic-play" viewBox="0 0 20 20"><path d="M5 2v16l13-8z" fill="#3a9c38" stroke="#176926"/></symbol>
+<symbol id="ic-profile" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="15" fill="#e7f5e2" stroke="#547054"/><path d="M4 13l4-6 4 4 4-5" fill="none" stroke="#cc3939" stroke-width="2"/></symbol>
+<symbol id="ic-edit" viewBox="0 0 20 20"><path d="M3 15 15 3l3 3L6 18l-4 1z" fill="#d3b25b" stroke="#58534e"/></symbol>
+<symbol id="ic-probe" viewBox="0 0 20 20"><path d="M10 17V8M2 8 10 2l8 6z" fill="#e4f2e0" stroke="#207b4c"/><circle cx="10" cy="17" r="2" fill="#d44"/></symbol>
+<symbol id="ic-volt" viewBox="0 0 20 20"><text x="3" y="16" font-size="15" fill="#2c62a6" font-family="serif" font-weight="bold">V</text></symbol>
+<symbol id="ic-current" viewBox="0 0 20 20"><text x="7" y="16" font-size="15" fill="#2c62a6" font-family="serif" font-weight="bold">I</text></symbol>
+<symbol id="ic-powerw" viewBox="0 0 20 20"><text x="2" y="16" font-size="15" fill="#2c62a6" font-family="serif" font-weight="bold">W</text></symbol>
+<symbol id="ic-res" viewBox="0 0 20 20"><path d="M0 10h3l2-5 3 10 3-10 3 10 3-5h3" stroke="#245e9e" fill="none" stroke-width="1.5"/></symbol>
+<symbol id="ic-cap" viewBox="0 0 20 20"><path d="M0 10h7m6 0h7M7 2v16m6-16v16" stroke="#245e9e" fill="none" stroke-width="1.5"/></symbol>
+<symbol id="ic-vdc" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke="#245e9e" fill="none"/><path d="M10 4v5m-3-2h6m-3 6h3" stroke="#245e9e"/></symbol>
+<symbol id="ic-delete" viewBox="0 0 20 20"><path d="M4 5h12l-1 13H5z" fill="#c9d2dd" stroke="#65738b"/><path d="M2 4h16M7 2h6" stroke="#505d75"/><path d="M8 8v7m4-7v7" stroke="#b73c42"/></symbol>
+<symbol id="ic-info" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#b3c7d9" stroke="#607386"/><text x="8" y="16" fill="#253954" font-size="16" font-weight="bold">i</text></symbol>
+<symbol id="ic-help" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#e9de79" stroke="#7b6d3b"/><text x="5.8" y="16" fill="#3b3e63" font-size="16" font-weight="bold">?</text></symbol>
+<symbol id="ic-grid" viewBox="0 0 20 20"><path d="M2 2h16v16H2z" fill="#f8f8f8" stroke="#657487"/><path d="M7 2v16m6-16v16M2 7h16M2 13h16" stroke="#8babc5"/></symbol>
+<symbol id="ic-stop" viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="1" fill="#c55755" stroke="#743636"/></symbol>
+<symbol id="ic-wave" viewBox="0 0 20 20"><path d="M1 11h4v-7h5v13h5v-7h4" stroke="#329b68" fill="none" stroke-width="2"/></symbol>
+<symbol id="ic-cursor" viewBox="0 0 20 20"><path d="M10 2v16M2 10h16" stroke="#325eb0"/><circle cx="10" cy="10" r="4" fill="none" stroke="#c53838"/></symbol>
+<symbol id="ic-panel" viewBox="0 0 20 20"><path d="M2 2h16v16H2z" fill="#fdfdfd" stroke="#52637e"/><path d="M8 2v16M2 6h16" stroke="#7898b3"/></symbol>
+<symbol id="ic-folder" viewBox="0 0 20 20"><path d="M2 5h6l2 2h8v10H2z" fill="#eed274" stroke="#96843b"/></symbol>
+<symbol id="ic-sheet" viewBox="0 0 20 20"><path d="M3 2h14v16H3z" fill="#fff" stroke="#6b8799"/><path d="M6 6h8m-8 3h8m-8 3h5" stroke="#8ab"/></symbol>
+<symbol id="ic-close" viewBox="0 0 20 20"><path d="M3 3 17 17M17 3 3 17" stroke="#c44" stroke-width="2"/></symbol>
+<symbol id="ic-lock" viewBox="0 0 20 20"><rect x="4" y="9" width="12" height="9" fill="#dfbe57" stroke="#95794a"/><path d="M7 9V6a3 3 0 0 1 6 0v3" fill="none" stroke="#777" stroke-width="1.7"/></symbol></svg>
+<div class="app" id="app">
+ <header class="windows-title" dir="ltr"><span class="brand-mark">◩</span><span id="app-caption">PSpice A/D Lite</span><span class="window-control-spacer"></span><button title="Minimize (نمایشی)">−</button><button title="Maximize (نمایشی)">□</button><button title="Close (نمایشی)">×</button></header>
+ <nav class="menu-strip" id="menus" dir="ltr" aria-label="Software menus"></nav>
+ <div class="toolbar-box" dir="ltr"><div class="toolstrip" id="tools-main"></div><div class="toolstrip" id="tools-secondary"></div><div class="toolstrip third" id="tools-third"></div></div>
+ <section class="work-area" id="pspice-area">
+  <div class="pspice-left" id="pspice-left"></div><div class="pspice-surface" id="pspice-surface"><div class="pspice-empty"><span class="empty-icon">◈</span><strong>PSpice A/D Lite</strong><small>Simulation workspace · No active simulation</small><button id="launch-capture-main">Open OrCAD Capture CIS Lite</button></div></div>
+  <div class="pspice-dock"><div class="dock-box" id="pspice-output"></div><div class="dock-box right"><div class="dock-header">Analysis　 Watch　 Devices</div><div class="dock-center">No analysis results loaded.</div></div></div>
+ </section>
+ <section class="capture-area hidden" id="capture-area"><div class="tabs" id="doc-tabs"><button data-tab="start" class="tab selected">Start Page</button></div>
+  <div class="capture-main"><aside class="project-panel" id="project-panel"><div class="panel-head">Project Manager <button class="panel-x" data-panel="project">×</button></div><div id="project-tree" class="tree"><div class="tree-empty">No active project<br>Use File → New → Project…</div></div></aside>
+  <section class="drawing-frame"><div id="start-view" class="start-view"><div class="start-columns"><div class="welcome-box"><div class="welcome-badge">Cadence <small>educational reconstruction</small></div><h1>OrCAD Capture CIS Lite</h1><p>Start a new design or open an existing session.</p><h3>Getting Started</h3><button class="start-link" data-act="new-project">▣ New Project…</button><button class="start-link" data-act="open-project">▣ Open Project…</button><button class="start-link" data-act="load-demo">▣ Load sample schematic</button></div><div class="welcome-side"><strong>Capture Workspace</strong><p>منوها و نوار ابزارها از تصاویر فایل آموزشی نسخه 17.2 بازسازی شده‌اند.</p><p>برای شروع، پروژه جدید بساز یا یک شماتیک نمونه بارگذاری کن.</p><button class="m-button" data-act="show-guide">راهنمای رابط کاربری</button></div></div></div>
+  <div id="schematic-view" class="sheet-view hidden"><svg id="capture-svg" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMin meet" aria-label="Schematic page editor"><defs><pattern id="capture-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.72" fill="#c9cdd4"/></pattern></defs><rect x="0" y="0" width="1200" height="760" fill="#fafafa"/><rect x="30" y="28" width="1140" height="700" fill="white" stroke="#465179" stroke-width="1"/><rect x="38" y="36" width="1124" height="684" fill="url(#capture-dots)"/><path d="M300 28v8M600 28v8M900 28v8" stroke="#4d5d82"/><g id="capture-wires"></g><g id="capture-components"></g><g id="capture-temp"></g></svg><div id="canvas-tip" class="canvas-tip hidden"></div></div></section>
+  <aside class="palette" id="capture-palette" aria-label="Place toolbar"></aside></div>
+  <section class="session-log" id="session-log"><div class="session-head"><span>Session Log</span><button data-act="toggle-log" title="Minimize session log">−</button></div><div id="log-lines" class="log-lines"></div></section>
+ </section>
+ <footer class="status-line" dir="ltr"><span id="status-main">For Help, press F1</span><span id="status-detail">Ready</span><span id="status-zoom">Scale=100%</span><span id="status-cursor">X=0.00 Y=0.00</span></footer>
+</div>
+<div id="popup-root" dir="ltr"></div><div id="dialog-backdrop" class="dialog-backdrop hidden"></div><div id="dialog-root"></div>
+<aside class="education-float edu-shell" id="edu-shell" dir="rtl" aria-label="مرکز مدیریت آموزش">
+  <div class="education-top" id="edu-drag-handle"><span class="edu-brand">◈ مرکز آموزش <small>PSpice / OrCAD</small></span><div class="edu-heading-actions"><button id="edu-collapse" title="کوچک کردن" aria-label="کوچک کردن مرکز آموزش">−</button></div></div>
+  <div id="education-links"><div class="edu-progress-block"><div class="edu-progress-head"><b>مسیر یادگیری</b><span id="edu-progress-label">۰ از ۱۶ مبحث</span></div><div class="edu-progress-track"><div id="edu-progress-fill"></div></div><p>موضوع دلخواه را انتخاب کن؛ لازم نیست آموزش‌ها پشت سر هم اجرا شوند.</p></div>
+    <input id="edu-search" type="search" placeholder="جست‌وجوی مبحث..." aria-label="جست‌وجوی مبحث">
+    <div id="edu-topic-list" class="edu-topic-list" aria-live="polite"></div>
+    <div class="edu-foot"><button id="edu-resume" type="button">ادامه آخرین آموزش</button><button id="edu-reset" type="button">بازنشانی پیشرفت</button></div>
+  </div>
+</aside>
+<div id="edu-guide-layer" class="edu-guide-layer hidden" dir="rtl" aria-live="polite"><div id="edu-focus" class="edu-focus"></div><section id="edu-popover" class="edu-popover" role="dialog" aria-label="راهنمای مرحله‌ای"><div class="edu-guide-head"><span id="edu-step-progress"></span><button id="edu-tour-close" type="button" title="خروج از راهنما">×</button></div><h3 id="edu-step-title"></h3><p id="edu-step-text"></p><div class="edu-step-status" id="edu-step-status"></div><div class="edu-guide-buttons"><button id="edu-prev" type="button">قبلی</button><button id="edu-demo" type="button" class="hidden">نمایش در نرم‌افزار</button><button id="edu-next" type="button" class="edu-primary">بعدی</button></div></section></div>
+<div id="edu-summary-backdrop" class="edu-summary-backdrop hidden" dir="rtl"><section class="edu-summary-modal" role="dialog" aria-modal="true" aria-label="جمع‌بندی مبحث"><div class="edu-summary-overline">پایان مبحث آموزشی</div><h2 id="edu-summary-title"></h2><p id="edu-summary-lead"></p><h3>نکات کلیدی</h3><ul id="edu-summary-points"></ul><div id="edu-summary-formulas" class="edu-summary-formulas hidden"></div><div id="edu-summary-source" class="edu-summary-source"></div><div class="edu-summary-actions"><button id="edu-summary-close" type="button">بستن و بازگشت به فهرست</button><button id="edu-summary-next" type="button" class="edu-primary">مبحث بعدی</button></div></section></div>
+<div class="help-tooltip hidden" id="help-tooltip" dir="rtl"></div>
+<script src="./capture.js"></script><script src="./tutorial-manager.js"></script></body></html>

@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "fileName": "RC_DEMO",
+  "components": [
+    {
+      "id": "V1",
+      "type": "VPULSE",
+      "x": 275,
+      "y": 286,
+      "value": "VPULSE",
+      "attrs": {
+        "V1": "0V",
+        "V2": "5V",
+        "TD": "0s",
+        "TR": "1us",
+        "TF": "1us",
+        "PW": "5ms",
+        "PER": "10ms"
+      },
+      "rotation": 0
+    },
+    {
+      "id": "R1",
+      "type": "R",
+      "x": 572,
+      "y": 165,
+      "value": "1k",
+      "attrs": {},
+      "rotation": 0
+    },
+    {
+      "id": "C1",
+      "type": "C",
+      "x": 880,
+      "y": 286,
+      "value": "1u",
+      "attrs": {},
+      "rotation": 0
+    },
+    {
+      "id": "G1",
+      "type": "0",
+      "x": 880,
+      "y": 451,
+      "value": "0",
+      "attrs": {},
+      "rotation": 0
+    }
+  ],
+  "wires": [
+    {
+      "from": {
+        "id": "V1",
+        "pin": "a"
+      },
+      "to": {
+        "id": "R1",
+        "pin": "a"
+      }
+    },
+    {
+      "from": {
+        "id": "R1",
+        "pin": "b"
+      },
+      "to": {
+        "id": "C1",
+        "pin": "a"
+      }
+    },
+    {
+      "from": {
+        "id": "C1",
+        "pin": "b"
+      },
+      "to": {
+        "id": "G1",
+        "pin": "a"
+      }
+    },
+    {
+      "from": {
+        "id": "G1",
+        "pin": "a"
+      },
+      "to": {
+        "id": "V1",
+        "pin": "b"
+      }
+    }
+  ],
+  "markers": [
+    {
+      "id": "V1",
+      "pin": "a",
+      "label": "VIN"
+    },
+    {
+      "id": "C1",
+      "pin": "a",
+      "label": "VOUT"
+    }
+  ],
+  "analysis": {
+    "transient": true,
+    "final": "30ms",
+    "print": "10us",
+    "ceiling": "1us",
+    "delay": "0s"
+  }
+}

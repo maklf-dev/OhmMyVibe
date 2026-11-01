@@ -1,0 +1,234 @@
+[
+  {
+    "id": "img01",
+    "page": 1,
+    "category": "معرفی",
+    "title": "صفحه شروع قدیمی OrCAD Capture 7.01",
+    "note": "تاریخی؛ مرجع رابط عملی نیست",
+    "src": "./reference/images/image01.jpeg"
+  },
+  {
+    "id": "img02",
+    "page": 3,
+    "category": "معرفی",
+    "title": "نمونه مدار پیچیده معرفی‌شده",
+    "note": "تصویر مفهومی؛ در سناریوی عملی بازسازی نمی‌شود",
+    "src": "./reference/images/image02.png"
+  },
+  {
+    "id": "img03",
+    "page": 4,
+    "category": "محیط PSpice",
+    "title": "پنجره مستقل PSpice A/D",
+    "note": "مرجع اصلی قاب و منوهای محیط اول",
+    "src": "./reference/images/image03.png"
+  },
+  {
+    "id": "img04",
+    "page": 4,
+    "category": "محیط PSpice",
+    "title": "نوار ابزار و میانبرهای PSpice",
+    "note": "مرجع آیکن‌ها و گروه‌بندی بالای محیط اول",
+    "src": "./reference/images/image04.png"
+  },
+  {
+    "id": "img05",
+    "page": 5,
+    "category": "محیط PSpice",
+    "title": "نوار نتایج و ابزارهای V/I/W",
+    "note": "مرجع حالت فعال/غیرفعال ابزارها",
+    "src": "./reference/images/image05.png"
+  },
+  {
+    "id": "img06",
+    "page": 5,
+    "category": "محیط PSpice",
+    "title": "مختصات و مقیاس صفحه",
+    "note": "مرجع نوار وضعیت",
+    "src": "./reference/images/image06.jpeg"
+  },
+  {
+    "id": "img07",
+    "page": 6,
+    "category": "محیط Capture",
+    "title": "Capture Lite 17.2 با منوی Place باز",
+    "note": "مرجع اصلی نسخه Capture؛ مسیر SPB_17.2 در پایین تصویر",
+    "src": "./reference/images/image07.png"
+  },
+  {
+    "id": "img08",
+    "page": 7,
+    "category": "قطعات",
+    "title": "Place Part خالی",
+    "note": "ساختار پنجره انتخاب قطعات و Add Library",
+    "src": "./reference/images/image08.jpeg"
+  },
+  {
+    "id": "img09",
+    "page": 8,
+    "category": "قطعات",
+    "title": "فهرست کتابخانه‌ها",
+    "note": "مدیریت کتابخانه‌ها، حالت‌های پنجره",
+    "src": "./reference/images/image09.jpeg"
+  },
+  {
+    "id": "img10",
+    "page": 9,
+    "category": "قطعات",
+    "title": "مقاومت R از کتابخانه ANALOG",
+    "note": "انتخاب قطعه و پیش‌نمایش نماد",
+    "src": "./reference/images/image10.jpeg"
+  },
+  {
+    "id": "img11",
+    "page": 10,
+    "category": "پروژه",
+    "title": "New Project",
+    "note": "نام، نوع پروژه، Location و دکمه‌های کلاسیک",
+    "src": "./reference/images/image11.jpeg"
+  },
+  {
+    "id": "img12",
+    "page": 10,
+    "category": "پروژه",
+    "title": "Create PSpice Project",
+    "note": "انتخاب Blank Project در مقابل نمونه موجود",
+    "src": "./reference/images/image12.jpeg"
+  },
+  {
+    "id": "img13",
+    "page": 11,
+    "category": "پروژه",
+    "title": "صفحه شماتیک خالی در Capture",
+    "note": "Canvas، نوارها و محیط پروژه جدید",
+    "src": "./reference/images/image13.jpeg"
+  },
+  {
+    "id": "img14",
+    "page": 12,
+    "category": "مدار",
+    "title": "مدار مقاومتی با منبع DC",
+    "note": "هدف نهایی اتصالات R1/R2/R3 و زمین",
+    "src": "./reference/images/image14.jpeg"
+  },
+  {
+    "id": "img15",
+    "page": 13,
+    "category": "مدار",
+    "title": "سه مقاومت با مقدار پیش‌فرض 1k",
+    "note": "حالت میانی آموزش پیش از تغییر مقدارها",
+    "src": "./reference/images/image15.jpeg"
+  },
+  {
+    "id": "img16",
+    "page": 14,
+    "category": "مدار",
+    "title": "Display Properties مقدار مقاومت",
+    "note": "دیالوگ Format و نمایش مقدار",
+    "src": "./reference/images/image16.jpeg"
+  },
+  {
+    "id": "img17",
+    "page": 15,
+    "category": "مدار",
+    "title": "انتخاب VDC از SOURCE",
+    "note": "پنجره قطعه با نمای منبع ولتاژ",
+    "src": "./reference/images/image17.jpeg"
+  },
+  {
+    "id": "img18",
+    "page": 15,
+    "category": "مدار",
+    "title": "انتخاب و افزودن زمین 0",
+    "note": "Place Ground و انتخاب نماد گره صفر",
+    "src": "./reference/images/image18.jpeg"
+  },
+  {
+    "id": "img19",
+    "page": 16,
+    "category": "شبیه‌سازی",
+    "title": "New Simulation",
+    "note": "نام پروفایل و Inherit From",
+    "src": "./reference/images/image19.jpeg"
+  },
+  {
+    "id": "img20",
+    "page": 16,
+    "category": "شبیه‌سازی",
+    "title": "Simulation Settings / Transient",
+    "note": "گزینه‌ها و پارامتر Run to time",
+    "src": "./reference/images/image20.jpeg"
+  },
+  {
+    "id": "img21",
+    "page": 17,
+    "category": "شبیه‌سازی",
+    "title": "نوار ابزار V/I/W",
+    "note": "نمایش کمیت‌های محاسبه‌شده روی شماتیک",
+    "src": "./reference/images/image21.png"
+  },
+  {
+    "id": "img22",
+    "page": 17,
+    "category": "شبیه‌سازی",
+    "title": "خروجی عددی مدار 200V",
+    "note": "نمونه مقایسه ولتاژ، جریان و توان",
+    "src": "./reference/images/image22.jpeg"
+  },
+  {
+    "id": "img23",
+    "page": 18,
+    "category": "شبیه‌سازی",
+    "title": "نوار ابزار مارکرها",
+    "note": "انواع نشانگر ولتاژ و جریان",
+    "src": "./reference/images/image23.png"
+  },
+  {
+    "id": "img24",
+    "page": 18,
+    "category": "شبیه‌سازی",
+    "title": "قرار دادن پراب روی خروجی R2",
+    "note": "مرجع ظاهری حالت انتخاب مارکر",
+    "src": "./reference/images/image24.jpeg"
+  },
+  {
+    "id": "img25",
+    "page": 19,
+    "category": "نمودارها",
+    "title": "پنجره Probe و نمودار خروجی DC",
+    "note": "پاسخ ثابت مدار مقاومتی در تحلیل زمانی",
+    "src": "./reference/images/image25.png"
+  },
+  {
+    "id": "img26",
+    "page": 20,
+    "category": "تحلیل‌ها",
+    "title": "Transient Settings",
+    "note": "Run to time و Maximum Step Size",
+    "src": "./reference/images/image26.jpeg"
+  },
+  {
+    "id": "img27",
+    "page": 21,
+    "category": "تحلیل‌ها",
+    "title": "DC Sweep Settings",
+    "note": "انتخاب Source، Start، End و Increment",
+    "src": "./reference/images/image27.jpeg"
+  },
+  {
+    "id": "img28",
+    "page": 22,
+    "category": "تحلیل‌ها",
+    "title": "AC Sweep/Noise Settings",
+    "note": "بازه فرکانس و مقیاس خطی/لگاریتمی",
+    "src": "./reference/images/image28.jpeg"
+  },
+  {
+    "id": "img29",
+    "page": 23,
+    "category": "تحلیل‌ها",
+    "title": "Bias Point Settings",
+    "note": "گزینه‌های تحلیل نقطه کار",
+    "src": "./reference/images/image29.jpeg"
+  }
+]
