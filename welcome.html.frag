@@ -70,6 +70,6 @@
         <div class="welcome-verified-list"><h2>منابع تکمیلی خارجی</h2><p>برای مطالعه آنها به اینترنت نیاز است؛ محتوا و اجرای خود کلون هیچ وابستگی به این وب‌سایت‌ها ندارند.</p><a href="https://www.flowcad.de/AN/FlowCAD_AN_Quick_Start_PSpice_172_Lite.pdf" target="_blank" rel="noopener noreferrer"><span>راهنمای PSpice 17.2 Lite در FlowCAD</span><span>PDF ↗</span></a><a href="https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad/academic.html" target="_blank" rel="noopener noreferrer"><span>برنامه دانشگاهی Cadence</span><span>وب‌سایت رسمی ↗</span></a><a href="https://www.ti.com/tool/PSPICE-FOR-TI" target="_blank" rel="noopener noreferrer"><span>ابزار PSpice for TI</span><span>وب‌سایت رسمی ↗</span></a></div>
       </section>
     </main>
-    <footer class="welcome-footer"><span>بازسازی آموزشی غیررسمی · این سایت محصول Cadence نیست.</span><span>نسخه پروژه 0.5.0 · صفحه معرفی و نصب</span></footer>
+    <footer class="welcome-footer"><span>بازسازی آموزشی غیررسمی · این سایت محصول Cadence نیست.</span><span>نسخه پروژه 0.6.0 · طراحی مدار ۲۰۰ ولتی</span></footer>
   </div>
 </div>

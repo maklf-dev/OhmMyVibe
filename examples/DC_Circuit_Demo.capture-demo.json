@@ -1,0 +1,122 @@
+{
+  "format": "pspice-capture-educational-v3",
+  "project": {
+    "name": "DC_Circuit_Demo",
+    "kind": "Analog or Mixed A/D",
+    "location": "Local Demo"
+  },
+  "parts": [
+    {
+      "id": "V1",
+      "type": "VDC",
+      "x": 180,
+      "y": 350,
+      "rotation": 90,
+      "value": "200V",
+      "display": "Name and Value"
+    },
+    {
+      "id": "R1",
+      "type": "R",
+      "x": 480,
+      "y": 340,
+      "rotation": 90,
+      "value": "2k",
+      "display": "Name and Value"
+    },
+    {
+      "id": "R2",
+      "type": "R",
+      "x": 900,
+      "y": 350,
+      "rotation": 90,
+      "value": "4k",
+      "display": "Name and Value"
+    },
+    {
+      "id": "R3",
+      "type": "R",
+      "x": 690,
+      "y": 145,
+      "rotation": 0,
+      "value": "3k",
+      "display": "Name and Value"
+    },
+    {
+      "id": "G1",
+      "type": "0",
+      "x": 500,
+      "y": 590,
+      "rotation": 0,
+      "value": "0",
+      "display": "Name and Value"
+    }
+  ],
+  "wires": [
+    {
+      "x1": 180,
+      "y1": 305,
+      "x2": 180,
+      "y2": 145
+    },
+    {
+      "x1": 180,
+      "y1": 145,
+      "x2": 645,
+      "y2": 145
+    },
+    {
+      "x1": 735,
+      "y1": 145,
+      "x2": 900,
+      "y2": 145
+    },
+    {
+      "x1": 900,
+      "y1": 145,
+      "x2": 900,
+      "y2": 305
+    },
+    {
+      "x1": 900,
+      "y1": 395,
+      "x2": 900,
+      "y2": 530
+    },
+    {
+      "x1": 180,
+      "y1": 395,
+      "x2": 180,
+      "y2": 530
+    },
+    {
+      "x1": 180,
+      "y1": 530,
+      "x2": 900,
+      "y2": 530
+    },
+    {
+      "x1": 480,
+      "y1": 295,
+      "x2": 480,
+      "y2": 145
+    },
+    {
+      "x1": 480,
+      "y1": 385,
+      "x2": 480,
+      "y2": 530
+    },
+    {
+      "x1": 500,
+      "y1": 530,
+      "x2": 500,
+      "y2": 550
+    }
+  ],
+  "libraries": [
+    "ANALOG",
+    "SOURCE",
+    "CAPSYM"
+  ]
+}
