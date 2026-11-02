@@ -2,247 +2,252 @@
 
 ### Circuit theory meets vibe coding.
 
-**An unofficial, offline-first, Persian-language interactive learning environment inspired by PSpice and OrCAD Capture.**
+**An unofficial, offline-first, Persian-language interactive learning environment inspired by classic PSpice and OrCAD Capture workflows.**
 
-[![Version](https://img.shields.io/badge/version-v0.7.0-2563eb)](https://github.com/maklf-dev/ohm-my-vibe/releases/tag/v0.7.0)
-![Status](https://img.shields.io/badge/status-pre--release-f59e0b)
-![Roadmap](https://img.shields.io/badge/roadmap-82%25-8b5cf6)
-![Tech](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-374151)
-![License](https://img.shields.io/badge/license-none-lightgrey)
+[![Release](https://img.shields.io/badge/release-v0.9.1-2563eb)](https://github.com/maklf-dev/ohm-my-vibe/releases/tag/v0.9.1)
+![Status](https://img.shields.io/badge/status-preview%20%2F%20stability%20release-f59e0b)
+![Roadmap](https://img.shields.io/badge/roadmap-98%25-8b5cf6)
+![Platform](https://img.shields.io/badge/platform-browser-475569)
+![Offline](https://img.shields.io/badge/runtime-offline-16a34a)
+![License](https://img.shields.io/badge/license-not%20selected-64748b)
 
-[![Download v0.7.0 ZIP](https://img.shields.io/badge/Download-v0.7.0%20ZIP-2ea44f?style=for-the-badge&logo=github)](https://github.com/maklf-dev/ohm-my-vibe/releases/download/v0.7.0/PSpice_OrCAD_Offline_Phase6_v0.7.0.zip)
+[![Download v0.9.1 ZIP](https://img.shields.io/badge/Download-v0.9.1%20ZIP-2ea44f?style=for-the-badge&logo=github)](https://github.com/maklf-dev/ohm-my-vibe/releases/download/v0.9.1/PSpice_OrCAD_Offline_Stability_v0.9.1.zip)
 
-**[All releases](https://github.com/maklf-dev/ohm-my-vibe/releases)** · **[Report an issue](https://github.com/maklf-dev/ohm-my-vibe/issues)** · **[Developer](https://github.com/maklf-dev)**
+**[All Releases](https://github.com/maklf-dev/ohm-my-vibe/releases)** · **[Report an Issue](https://github.com/maklf-dev/ohm-my-vibe/issues)** · **[Developer](https://github.com/maklf-dev)**
 
 > [!IMPORTANT]
-> **Work in progress — Phase 6 of 8.** This is an independent educational reconstruction, **not** official PSpice/OrCAD software, and **not** a general-purpose SPICE simulator. The 82% figure is weighted roadmap completion, not simulation accuracy or production readiness.
+> **Development preview, not official software.** Ohm My Vibe! is an independent educational reconstruction. It is **not** affiliated with Cadence, does **not** contain official PSpice/OrCAD binaries, and is **not** a general-purpose SPICE simulator. The reported **98%** refers to the project's *weighted development roadmap*, not production readiness or simulation coverage.
 
-## 📖 About
+## 📖 About the Project
 
-**Ohm My Vibe!** is a browser-based project for Persian-speaking students who want to explore circuit design, schematic editing, and simulation concepts in an interface inspired by classic OrCAD Capture and PSpice workflows.
+**Ohm My Vibe!** is a browser-based learning environment for Persian-speaking students exploring schematic editing, electronic-circuit concepts, and introductory circuit-analysis workflows.
 
-The application combines:
+Instead of requiring students to learn everything by reading menus and memorizing buttons, the project combines a classic Capture-inspired workspace with a **guided, interactive Persian tutorial system**. It is built with **HTML, CSS, and vanilla JavaScript** and is designed to run without a backend, a package manager, or runtime internet access.
 
-- A Capture-inspired schematic workspace
-- A Persian guided-learning center
-- Interactive circuit construction and connectivity checks
-- **Educational** DC and RC analysis tools
-- An offline Probe-style chart viewer
-- A welcome screen, installation walkthrough, and reference resources
+### Highlights
 
-Built using **vanilla HTML, CSS, and JavaScript**, with no required backend, npm installation, or remote simulation service.
+- A classic **OrCAD Capture-inspired** project and schematic workspace.
+- An interactive learning center containing **16 topics across 5 categories and 57 guided steps**.
+- Guided actions with completion checks, step summaries, and explanatory formulas.
+- A sample **200 V DC circuit**, editable components, wiring and connectivity validation.
+- Educational **Bias Point, DC Sweep, Transient, and AC Sweep** demonstrations.
+- An offline **Probe-style** results window with SVG plots and CSV export.
+- JSON project save/open for the project's **own educational format**.
+- An offline welcome screen, installation walkthrough, and reference gallery.
+- A standalone HTML build alongside modular source files.
 
-## ✨ What's new in v0.7.0 — Phase 6
+## 🆕 What's New in v0.9.1 — Offline Stability Update
 
-Phase 6 extends the schematic editor from v0.6.0 with **working analysis flows for a specifically supported reference circuit and standalone RC demonstrations**.
+This release builds on **v0.9.0**, focusing on tutorial stability and offline packaging rather than adding a new circuit-analysis engine.
 
-### 1. Simulation profiles
+### Improved tutorial engine lifecycle
 
-- **PSpice → New Simulation Profile** and **Edit Simulation Profile** workflows
-- Create and name profiles
-- Configure analysis-specific parameters in a Simulation Settings dialog
-- Save the profile together with the educational circuit JSON
+- Fixed a lifecycle issue where the optional Driver.js instance could be discarded when starting a new lesson.
+- When a genuine local Driver.js installation is available, the application creates an instance **per topic**, sets its steps, drives the tour, and cleans up the previous instance on topic changes or completion.
+- Added the **active tutorial engine name** to the learning-center interface, making it clear whether the built-in guide or local Driver.js is being used.
+- Preserved all **16 topics and 57 Persian steps**, including completion checks for practical tasks.
 
-### 2. DC Bias Point
+### New offline preparation tools
 
-For the supported 200 V reference circuit, calculate:
+- Added `tools/Install-DriverJs.ps1` to **optionally** download the official **Driver.js v1.10.2** JavaScript, CSS, and license into local `vendor/` files on an internet-connected preparation computer.
+- Added `tools/build_standalone.py` to regenerate the standalone HTML after editing modular source files or installing genuine Driver.js assets.
+- Regenerated `index-standalone.html` with application CSS and JavaScript embedded and no automatic CDN dependency.
+- Documented the exact optional library-installation steps in `vendor/README-DRIVERJS.txt`.
 
-- Node voltages
-- Branch currents
-- Resistor and source power
-- Voltage/current/power labels on the schematic (`V`, `I`, `W`)
-- Tabulated results in the Probe-style window
-
-The solver **validates the expected topology and wiring before running**; it does not solve arbitrary user-designed circuits.
-
-### 3. DC Sweep
-
-- Sweep source `V1` linearly using Start, End, and Increment
-- Recalculate the supported circuit at each step
-- Plot `V(R2 top)` and `I(R2)`
-- Export computed samples as CSV
-
-### 4. Time Domain (Transient)
-
-- Show the **correct flat time response** of the reference circuit under a constant DC source
-- Configure run duration, save start time, and displayed sampling step
-- Explore a **separate analytical RC step-response example** for time-varying behavior
-
-The RC example is **not** simulated from the Capture schematic. The maximum-step setting controls plotted sample density, not a SPICE adaptive integration algorithm.
-
-### 5. AC Sweep / Noise menu
-
-- Explore a **separate analytical RC low-pass filter example**
-- Adjust resistance and capacitance
-- Plot frequency-dependent gain in dB and phase in degrees
-- Use separate scales for gain and phase
-
-**Noise analysis and general AC simulation of the drawn schematic are not implemented.**
-
-### 6. Offline Probe-style results
-
-- SVG-based plotted curves generated from computed data
-- Toggle curve visibility
-- Click plots to inspect sample values
-- Export CSV data
-- Dark, classic-inspired visualization
-
-### 7. Learning and regression improvements
-
-- Seven simulation-related learning topics now connect to executable demonstrations instead of preview-only flows
-- The existing **16-topic Persian learning center** remains available
-- Phase 5 schematic editing and connectivity validation are preserved
-- The earlier legacy RC demo remains separate and accessible
+> [!WARNING]
+> **The official Driver.js library is NOT included in this ZIP.** The bundled `vendor/` files are placeholders. The built-in Persian tutorial engine works offline without Driver.js. Real Driver.js integration is prepared but **has not yet been tested with the official library**; a mock API test is not equivalent to testing the genuine distribution.
 
 ## 🖼️ Preview
 
-*These paths assume the repository root contains the extracted `PSpice-Offline` files.*
-
-| DC Bias Point | DC Sweep |
+| Capture-inspired workspace | Persian interactive tutorials |
 |---|---|
-| ![DC Bias Point preview](reference/phase6-bias-preview.png) | ![DC Sweep preview](reference/phase6-dc-sweep-preview.png) |
+| ![Workspace preview](reference/phase8-capture-preview.png) | ![Tutorial preview](reference/phase7-tutorial-preview.png) |
 
-> Preview images are illustrative. Actual interaction is available in the application.
+| Reference circuit | DC Sweep demonstration |
+|---|---|
+| ![Circuit preview](reference/phase5-circuit-preview.png) | ![DC Sweep preview](reference/phase6-dc-sweep-preview.png) |
 
-## 📥 Download and run
+> The image paths above assume the **contents of `PSpice-Offline/` are placed at the repository root**. If you retain the top-level folder in Git, prefix each image path with `PSpice-Offline/`.
 
-1. Click **Download v0.7.0 ZIP** above or visit [Releases](https://github.com/maklf-dev/ohm-my-vibe/releases).
-2. Download **`PSpice_OrCAD_Offline_Phase6_v0.7.0.zip`**.
-3. Extract the complete ZIP without changing its relative folder structure.
-4. Open **`PSpice-Offline/index-standalone.html`** with a current Chrome or Edge browser.
-5. From the Persian welcome screen, enter the simulated workspace.
-6. Load the sample schematic using **Load sample schematic**.
-7. Run the connectivity check, then choose **PSpice → New Simulation Profile**.
-8. Select an analysis, configure it, and choose **PSpice → Run**.
-9. Inspect results in the Probe window or use `V`, `I`, and `W` overlays.
+## 📥 Download & Quick Start
 
-**No installer, Node.js, npm, or backend is needed by the application design.** Some optional links to official software and documentation require internet access.
+1. Click **Download v0.9.1 ZIP** above, or visit the [Releases page](https://github.com/maklf-dev/ohm-my-vibe/releases).
+2. Download `PSpice_OrCAD_Offline_Stability_v0.9.1.zip`.
+3. **Extract the entire archive**. Keep the `reference/` directory and other folders in place.
+4. Open `PSpice-Offline/index-standalone.html` in a current **Chrome** or **Microsoft Edge** browser.
+5. On the Persian welcome screen, enter the Capture-inspired workspace.
+6. Select **Load sample schematic**, then use **Check Connections** to validate it.
+7. Select **PSpice → New Simulation Profile**, create a profile, and configure an analysis.
+8. Select **PSpice → Run** to see the calculated table or chart in the Probe-style window.
+9. Open the floating **Learning Center** to follow guided lessons.
 
-**Browser testing caveat:** Direct `file://` execution was blocked by the test environment's administrative policy. The bundled HTML/CSS/JS was tested through browser content injection, so direct local-file compatibility on every computer has **not** been independently confirmed.
+**Normal use requires no Node.js, npm, web server, or external simulation service.** The standalone HTML embeds the application styles and scripts; the image gallery still uses **relative local image paths**, so do not move that HTML out of its extracted folder.
 
-### Save and reopen your work
+**Important compatibility note:** The test environment blocked direct `file://` and `http://127.0.0.1` navigation through its administrator policy. Tests used Chromium with the full HTML loaded into the browser. **Direct double-click execution still needs verification on your target computer.** Use [Offline Quick Check](OFFLINE-QUICK-CHECK-FA.md) before a live presentation.
 
-Use **File → Save** to download an educational JSON document containing supported components, wires, libraries, and simulation-profile settings. Use **File → Open** to restore it. This is **not** native OrCAD `.dsn` or `.opj` support.
+### Optional: Install the Official Driver.js Locally
 
-## 🔬 Reference circuit and verified calculations
+The application **does not need this step** for its built-in guide. If you want to try the real Driver.js library, from the extracted `PSpice-Offline/` directory on a **Windows computer with internet access**, run:
 
-The supported DC circuit has a **200 V DC source**, with `R1` in parallel with the series combination of `R3` and `R2`.
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\Install-DriverJs.ps1
+```
 
-| Component | Value |
+Then open `index.html` to use the modular build. To rebuild the standalone HTML **with the downloaded official files**, install Python on the *preparation machine* and run:
+
+```powershell
+py .\tools\build_standalone.py
+```
+
+You can also rebuild directly after downloading in one command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\Install-DriverJs.ps1 -RebuildStandalone
+```
+
+The installer retrieves Driver.js **v1.10.2** from jsDelivr at preparation time and preserves its MIT license. Run scripts only after inspecting them and verifying that you trust their download sources. After bundling, the local application itself does not need to contact a CDN. **The official-driver workflow remains unverified until tested with actual downloaded assets.**
+
+See [`vendor/README-DRIVERJS.txt`](vendor/README-DRIVERJS.txt) for details.
+
+## 🔌 Supported Circuit & Analyses
+
+The interactive schematic editor supports a specific **200 V reference circuit**: `R1` in parallel with the series branch `R3 + R2`, powered by `V1`.
+
+| Component | Default value |
 |---|---:|
-| V1 | 200 V |
-| R1 | 2 kΩ |
-| R2 | 4 kΩ |
-| R3 | 3 kΩ |
+| `V1` | 200 V DC |
+| `R1` | 2 kΩ |
+| `R2` | 4 kΩ |
+| `R3` | 3 kΩ |
 
-With the default values:
+Expected results for the reference values:
 
-| Measurement | Expected value |
+| Measurement | Result |
 |---|---:|
-| Current through R1 | 100 mA |
-| Current through R2 and R3 | 28.571429 mA |
-| Voltage at top of R2 | 114.285714 V |
-| Power in R1 | 20 W |
-| Power in R2 | ≈ 3.265306 W |
-| Power in R3 | ≈ 2.448980 W |
-| Source power (passive sign convention) | ≈ −25.714286 W |
+| `I(R1)` | 100 mA |
+| `I(R2) = I(R3)` | ≈ 28.571 mA |
+| `V(R2 top)` | ≈ 114.286 V |
+| `P(R1)` | 20 W |
+| `P(R2)` | ≈ 3.265 W |
+| `P(R3)` | ≈ 2.449 W |
 
-The negative source-power value indicates power **delivered** by the source.
+| Analysis | What this project supports |
+|---|---|
+| **DC Bias Point** | Voltage, current, and power calculations for the validated reference topology |
+| **DC Sweep** | Linear sweeps of source `V1`, with calculated traces and CSV export |
+| **Transient** | Constant DC response of the reference circuit; an **independent analytical RC** step-response example |
+| **AC Sweep** | An **independent analytical RC low-pass** example with gain and phase plots |
+| **Probe** | Lightweight SVG plots, selectable curves, and CSV export |
 
-## 🗂️ Project structure
+The system checks circuit connections before generating results for the supported DC circuit. **It does not solve arbitrary schematics**. The RC Transient and AC examples are separate mathematical demonstrations, **not analyses of a netlist drawn in Capture**. Noise analysis is not implemented.
+
+### Educational project files
+
+- **File → Save** exports an educational **JSON** document with supported circuit and profile data.
+- **File → Open** restores that JSON document.
+- Charts can be exported as **CSV**.
+- Native Cadence `.dsn` and `.opj` file compatibility is **not implemented**.
+
+## 🎓 Interactive Persian Learning Center
+
+The current tutorial system provides:
+
+- **16 topics, 5 categories, and 57 steps**, based on the project's educational source material.
+- Floating, collapsible guidance with topic navigation and progress tracking.
+- UI highlighting, contextual explanations, and summaries.
+- Practical step gates that prevent progression before required actions are completed.
+- Demo-execution shortcuts for supported application actions.
+- Circuit formulas and numerical explanations in relevant summaries.
+- A visible indicator showing whether the **internal guide** or **local Driver.js** is active.
+
+The default **built-in** guide runs entirely offline. The optional external library is neither bundled nor required for core learning features.
+
+## 📁 Repository Structure
+
+The following structure assumes that the files *inside* `PSpice-Offline/` are committed at the root of this GitHub repository:
 
 ```text
 .
-├── index-standalone.html        # Recommended self-contained HTML entry
-├── index.html                   # Modular development entry
-├── capture.js / capture.css     # Capture-inspired workspace
-├── phase5.css                   # Schematic editing additions
-├── phase6.js / phase6.css       # Analysis workflows and Probe
-├── tutorial-manager.js / .css   # Persian learning center
-├── welcome.js / welcome.css     # Welcome and installation guide
+├── index-standalone.html          # Recommended offline single-file app shell
+├── index.html                     # Modular development entry point
+├── capture.js / capture.css       # Capture-inspired schematic workspace
+├── phase5.css                     # Schematic editing styles
+├── phase6.js / phase6.css         # Analyses and Probe-style results
+├── phase7.css                     # Tutorial and Driver.js compatibility styles
+├── tutorial-manager.js / .css     # Interactive Persian lessons
+├── welcome.js / welcome.css       # Welcome and installation experience
 ├── welcome.html.frag
-├── examples/                    # Educational circuit JSON examples
-├── legacy/                      # Earlier independent RC demonstration
-├── reference/                   # Reports, images, previews, metadata
-├── reference-atlas.html
-├── vendor/                      # Placeholder Driver.js assets
-├── README-FA.md                 # Persian usage guide
-├── PHASE-6-REPORT-FA.md         # Phase 6 design and calculation details
-└── PHASE-6-TEST-REPORT-FA.md    # Phase 6 test report
+├── examples/                      # Educational circuit JSON samples
+├── reference/                     # Preview screenshots, source references and reports
+│   └── images/                    # Reference images from educational materials
+├── reference-atlas.html           # Reference image browser
+├── legacy/                        # Original standalone RC demonstration
+├── vendor/                        # Driver.js placeholders / optional local assets
+├── tools/
+│   ├── Install-DriverJs.ps1        # Optional one-time asset downloader
+│   └── build_standalone.py        # Standalone rebuild tool
+├── README-FA.md                   # Persian instructions
+├── RELEASE-0.9.1-FA.md            # v0.9.1 release details
+├── PHASE-8-REPORT-FA.md           # Final phase implementation report
+├── PHASE-8-TEST-REPORT-FA.md      # Previous release test report
+├── OFFLINE-QUICK-CHECK-FA.md      # Real-computer offline test checklist
+├── SHA256SUMS.txt                 # Package file hash list
+└── VERSION.txt                    # Packaged version marker
 ```
 
-The structure above assumes the contents of `PSpice-Offline/` are committed at the repository root. If the directory is committed as a nested folder, adjust the relative documentation and image links.
+> `index-standalone.html` is a self-contained *application shell*, not a self-contained image archive. Keep its relative assets alongside it.
 
-## 🧭 Development roadmap
+## 🧭 Roadmap & Current Status
 
-| Phase | Scope | Status |
+| Phase | Scope | State |
 |---|---|---|
-| 1 | Baseline, source inventory and preservation | ✅ Complete |
-| 2 | Capture-inspired interface reconstruction | ✅ Complete |
-| 3 | Persian interactive learning center | ✅ Complete |
-| 4 | Welcome, history, installation and resources | ✅ Complete |
-| 5 | Schematic editor, component libraries and connectivity | ✅ Complete |
-| **6** | **Simulation profiles, supported DC analyses, RC demonstrations and Probe** | **✅ Complete — v0.7.0** |
-| 7 | Integrate the real, locally bundled Driver.js library and expand guided lessons | ⏳ Planned |
-| 8 | Final offline validation, visual polish and release hardening | ⏳ Planned |
+| 1 | Baseline inventory and source preservation | ✅ Complete |
+| 2 | Classic Capture-inspired workspace | ✅ Complete |
+| 3 | Persian learning center | ✅ Complete |
+| 4 | Welcome, history, installation and references | ✅ Complete |
+| 5 | Schematic editor, component libraries and reference circuit | ✅ Complete |
+| 6 | Profiles, limited analyses and Probe-style viewer | ✅ Complete |
+| 7 | Advanced guided learning and official Driver.js integration | 🟠 Partially complete: **8/10 weighted points** |
+| 8 | Offline build, regression testing and release preparation | ✅ Complete |
 
-**Roadmap: 6/8 phases complete, 82% weighted progress.** Remaining phases account for 18% of the planned work.
+**Weighted roadmap progress: 98%.** The remaining **2%** is associated with obtaining, integrating, and testing the actual official Driver.js distribution. Phase completion is not a claim of full compatibility with commercial PSpice or readiness for every deployment environment.
 
-## 🧪 Testing
+## 🧪 Validation & Known Limitations
 
-The bundled Phase 6 test report documents:
+The included **v0.9.1 stability report** documents the following tests:
 
-- Chromium checks at **1280×720**, **1366×768**, and **1920×1080**, with no JavaScript errors in tested flows
-- Loading the reference schematic, validating connectivity, creating a profile, running analyses, and opening Probe
-- Transient output: **1,001** points for a 100 ms run with 0.1 ms display step
-- DC Sweep: **21** points from 0 to 200 V in 10 V increments, reaching 114.285714 V and 28.571429 mA
-- DC Bias Point values and negative source-power convention
-- Resistor edit: changing R1 from 2 kΩ to 4 kΩ changes its current from 100 mA to 50 mA and power from 20 W to 10 W
-- Missing-wire validation prevents invalid DC Sweep results
-- Invalid frequency settings produce validation feedback
-- The previous 16 tutorial topics remain recognized
+- All **16 lessons / 57 steps** completed through the built-in guided-learning engine, in both modular and standalone Chromium test setups.
+- Required **New Project** action prevents premature progression.
+- Sample schematic loads and connectivity checks operate correctly.
+- **Bias Point, DC Sweep, Transient, and AC Sweep** demonstration flows run for their supported cases.
+- Viewport checks at **1280, 1366, 1440 and 1920 px** passed for the tested workflows.
+- No unwanted automatic network requests were observed during browser loading.
+- An **API-mocked Driver.js lifecycle test** showed three instances created and three destroyed with expected navigation behavior.
 
-**Not verified:** unrestricted `file://` execution on end-user devices, full pixel fidelity to OrCAD 17.2, arbitrary-circuit simulation, and native Cadence project compatibility.
+**What remains unverified:** genuine Driver.js runtime integration, direct local `file://` opening on an ordinary user machine, compatibility across all browsers/Windows configurations, pixel-level fidelity to the original OrCAD interface, and general-purpose circuit simulation.
 
-Read the [Phase 6 implementation report](PHASE-6-REPORT-FA.md) and [Phase 6 test report](PHASE-6-TEST-REPORT-FA.md) for details.
+This is an **educational prototype**, not an engineering-grade simulator or a substitute for officially supported analysis software.
 
-## ⚠️ Current limitations
+For technical details, read [v0.9.1 Stability Report](RELEASE-0.9.1-FA.md), [Phase 8 Test Report](PHASE-8-TEST-REPORT-FA.md), and [Offline Quick Check](OFFLINE-QUICK-CHECK-FA.md).
 
-- **Not a general-purpose SPICE engine.** The DC solver supports only the validated reference topology.
-- No transistor models, arbitrary-circuit AC analysis, or noise solver.
-- RC transient and AC examples use independent analytical models rather than the schematic netlist.
-- No native `.dsn` or `.opj` import/export.
-- `Maximum step size` affects chart sampling, not SPICE numerical integration.
-- Plotting is capped at **1,600 samples** for browser responsiveness.
-- The current guided tour uses a custom local engine; bundled Driver.js files are **placeholders**, pending Phase 7.
-- Browser-specific local-file policies and full offline packaging still need end-user validation.
+## 🤝 Feedback & Contributions
 
-## 📚 References
+Bug reports, accessibility improvements, educational corrections, and test results are welcome via [GitHub Issues](https://github.com/maklf-dev/ohm-my-vibe/issues).
 
-Official and third-party resources used for educational cross-checking:
+Please **do not upload proprietary software, licensed third-party images, or unofficial copies of Cadence tools** to this repository.
 
-- [Cadence: Simulation Profiles](https://community.cadence.com/cadence_blogs_8/b/pcb/posts/simulationprofiles)
-- [Cadence: Circuit simulation overview](https://resources.academic.cadence.com/circuit-simulation/2025-how-to-simulate-pcb-design)
-- [FlowCAD: PSpice 17.2 quick-start PDF (German)](https://www.flowcad.de/PSpice_Schnellstart_17_2.pdf)
-- [Cadence OrCAD Academic](https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad/academic.html)
-- [PSpice for TI](https://www.ti.com/tool/PSPICE-FOR-TI)
+## ⚖️ License, Attribution & Disclaimer
 
-These references are **not bundled installers** and are not required for running the educational application. Phase 6 added no external runtime dependency.
+**No open-source license has been selected for the project's original code.** Public visibility alone does not grant a general license to reuse, modify, or redistribute the software. Any future code license will be explicitly announced and will not automatically cover third-party materials.
 
-## 🤝 Feedback and contributions
+This project is **independent and unofficial**. It is **not affiliated with, sponsored by, approved by, or endorsed by Cadence Design Systems, Inc.** Cadence, OrCAD and PSpice are names and/or trademarks of their respective owners, used here to describe the educational reference environment.
 
-Issues, bug reports, corrections to educational content, and accessibility feedback are welcome through [GitHub Issues](https://github.com/maklf-dev/ohm-my-vibe/issues). Please avoid submitting proprietary Cadence binaries or third-party assets without redistribution permission.
-
-## ⚖️ License and legal notice
-
-**No open-source license has been selected for this repository.** Public visibility does not grant a general license to reuse, modify, or redistribute the original code.
-
-This is an **independent, unofficial educational project** and is not affiliated with, endorsed by, or sponsored by Cadence Design Systems, Inc. Cadence, OrCAD, and PSpice are names or trademarks of their respective owners, used only for identification and educational reference.
-
-The package includes reference images extracted from educational source material. **Their redistribution rights must be reviewed before public release.** Any future license covering original code would not automatically cover third-party materials.
+**Before publishing the ZIP publicly:** confirm redistribution rights for the included reference images derived from the educational source document. If rights are uncertain, omit or replace those assets and update the application/reference gallery accordingly. This notice does not grant permission to distribute third-party content.
 
 ## 👨‍💻 Author
 
-Built with curiosity, circuit theory, and a suspicious amount of vibe coding by **[maklf-dev](https://github.com/maklf-dev)**.
+Created and maintained by **[maklf-dev](https://github.com/maklf-dev)**.
 
-If you find this project useful, a GitHub ⭐ is appreciated.
+**A little electronics, a little JavaScript, and an unreasonable amount of experimenting.** ⚡
+
+If you find this project useful, consider giving it a ⭐ on GitHub.

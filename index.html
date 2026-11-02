@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fa"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>PSpice / OrCAD Capture 17.2 — Offline Educational Workspace</title><link rel="stylesheet" href="./capture.css"><link rel="stylesheet" href="./tutorial-manager.css"><link rel="stylesheet" href="./welcome.css"><link rel="stylesheet" href="./phase5.css"><link rel="stylesheet" href="./phase6.css"></head><body>
+<!DOCTYPE html><html lang="fa"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>PSpice / OrCAD Capture 17.2 — Offline Educational Workspace</title><link rel="stylesheet" href="./capture.css"><link rel="stylesheet" href="./tutorial-manager.css"><link rel="stylesheet" href="./welcome.css"><link rel="stylesheet" href="./phase5.css"><link rel="stylesheet" href="./phase6.css"><link rel="stylesheet" href="./vendor/driver.min.css"><link rel="stylesheet" href="./phase7.css"></head><body>
 <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true"><symbol id="ic-new" viewBox="0 0 20 20"><path d="M4 2h9l4 4v12H4z" fill="#fafafa" stroke="#4e5369"/><path d="M13 2v4h4" fill="none" stroke="#4e5369"/><path d="M6 10h9M6 13h8" stroke="#8ba1be"/></symbol>
 <symbol id="ic-open" viewBox="0 0 20 20"><path d="M1 6h7l3 3h8l-3 9H3z" fill="#f2c64e" stroke="#77622e"/><path d="M3 6V3h7l2 4" fill="none" stroke="#796334"/></symbol>
 <symbol id="ic-save" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" fill="#3c559c" stroke="#33406a"/><rect x="5" y="3" width="10" height="6" fill="#f0f0f0"/><rect x="5" y="12" width="10" height="5" fill="#fdfefe"/><path d="M12 4v4" stroke="#333"/></symbol>
@@ -64,7 +64,7 @@
   <div class="education-top" id="edu-drag-handle"><span class="edu-brand">◈ مرکز آموزش <small>PSpice / OrCAD</small></span><div class="edu-heading-actions"><button id="edu-home" type="button" title="صفحه نخست و نصب" aria-label="بازگشت به صفحه نخست">⌂</button><button id="edu-collapse" title="کوچک کردن" aria-label="کوچک کردن مرکز آموزش">−</button></div></div>
   <div id="education-links"><div class="edu-progress-block"><div class="edu-progress-head"><b>مسیر یادگیری</b><span id="edu-progress-label">۰ از ۱۶ مبحث</span></div><div class="edu-progress-track"><div id="edu-progress-fill"></div></div><p>موضوع دلخواه را انتخاب کن؛ لازم نیست آموزش‌ها پشت سر هم اجرا شوند.</p></div>
     <input id="edu-search" type="search" placeholder="جست‌وجوی مبحث..." aria-label="جست‌وجوی مبحث">
-    <div id="edu-topic-list" class="edu-topic-list" aria-live="polite"></div>
+    <div id="edu-topic-list" class="edu-topic-list" aria-live="polite"></div><div id="edu-engine-label" class="edu-engine-label" role="status">موتور فعال: راهنمای داخلی آفلاین</div>
     <div class="edu-foot"><button id="edu-resume" type="button">ادامه آخرین آموزش</button><button id="edu-reset" type="button">بازنشانی پیشرفت</button></div>
   </div>
 </aside>
@@ -143,8 +143,8 @@
         <div class="welcome-verified-list"><h2>منابع تکمیلی خارجی</h2><p>برای مطالعه آنها به اینترنت نیاز است؛ محتوا و اجرای خود کلون هیچ وابستگی به این وب‌سایت‌ها ندارند.</p><a href="https://www.flowcad.de/AN/FlowCAD_AN_Quick_Start_PSpice_172_Lite.pdf" target="_blank" rel="noopener noreferrer"><span>راهنمای PSpice 17.2 Lite در FlowCAD</span><span>PDF ↗</span></a><a href="https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad/academic.html" target="_blank" rel="noopener noreferrer"><span>برنامه دانشگاهی Cadence</span><span>وب‌سایت رسمی ↗</span></a><a href="https://www.ti.com/tool/PSPICE-FOR-TI" target="_blank" rel="noopener noreferrer"><span>ابزار PSpice for TI</span><span>وب‌سایت رسمی ↗</span></a></div>
       </section>
     </main>
-    <footer class="welcome-footer"><span>بازسازی آموزشی غیررسمی · این سایت محصول Cadence نیست.</span><span>نسخه پروژه 0.7.0 · تحلیل‌های چهارگانه مدار</span></footer>
+    <footer class="welcome-footer"><span>بازسازی آموزشی غیررسمی · این سایت محصول Cadence نیست.</span><span>نسخه پروژه 0.8.0 · تحلیل‌های چهارگانه مدار</span></footer>
   </div>
 </div>
 
-<script src="./capture.js"></script><script src="./phase6.js"></script><script src="./tutorial-manager.js"></script><script src="./welcome.js"></script></body></html>
+<script src="./capture.js"></script><script src="./phase6.js"></script><script src="./vendor/driver.js.iife.min.js"></script><script src="./tutorial-manager.js"></script><script src="./welcome.js"></script></body></html>

@@ -1,7 +1,7 @@
 {
-  "version": "0.7.0-phase6",
-  "completed_weight_percent": 82,
-  "completed_milestones": 6,
+  "version": "0.9.0-phase8-release-candidate",
+  "completed_weight_percent": 98,
+  "completed_milestones": 7,
   "total_milestones": 8,
   "roadmap": [
     {
@@ -44,13 +44,18 @@
       "phase": "۷",
       "title": "Driver.js رسمی، محتوای فارسی و جمع‌بندی‌ها",
       "weight": 10,
-      "status": "pending"
+      "status": "partially-completed",
+      "completed_weight": 8,
+      "remaining_weight": 2,
+      "note": "Official Driver.js distribution is not bundled; offline internal guide fully works."
     },
     {
       "phase": "۸",
       "title": "تست آفلاین، مقایسه تصویری و انتشار",
       "weight": 8,
-      "status": "pending"
+      "status": "completed",
+      "note": "Regression/quality review, offline build, release notes and test reports complete; direct file URL remains blocked in build environment."
     }
-  ]
+  ],
+  "active_milestone": 7
 }
