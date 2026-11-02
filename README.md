@@ -4,13 +4,13 @@
 
 **An independent, Persian-language, offline educational workspace inspired by classic OrCAD Capture and PSpice workflows.**
 
-[![Release](https://img.shields.io/badge/release-v1.0.0-2563eb?style=flat-square)](https://github.com/maklf-dev/ohm-my-vibe/releases/tag/v1.0.0)
+[![Release](https://img.shields.io/badge/release-v1.0.1-2563eb?style=flat-square)](https://github.com/maklf-dev/ohm-my-vibe/releases/tag/v1.0.1)
 ![Status](https://img.shields.io/badge/status-stable%20presentation-198754?style=flat-square)
 ![Offline](https://img.shields.io/badge/offline-ready-0f766e?style=flat-square)
 ![Technology](https://img.shields.io/badge/HTML%20%7C%20CSS%20%7C%20JavaScript-no%20build%20step-f59e0b?style=flat-square)
 ![Project license](https://img.shields.io/badge/project%20license-not%20selected-lightgrey?style=flat-square)
 
-[![Download v1.0.0](https://img.shields.io/badge/Download-v1.0.0%20ZIP-2ea44f?style=for-the-badge&logo=github)](https://github.com/maklf-dev/ohm-my-vibe/releases/download/v1.0.0/PSpice_OrCAD_Presentation_v1.0.0.zip)
+[![Download v1.0.1](https://img.shields.io/badge/Download-v1.0.1%20ZIP-2ea44f?style=for-the-badge&logo=github)](https://github.com/maklf-dev/ohm-my-vibe/releases/download/v1.0.1/PSpice_OrCAD_Presentation_v1.0.1.zip)
 
 **[All releases](https://github.com/maklf-dev/ohm-my-vibe/releases)** · **[Report an issue](https://github.com/maklf-dev/ohm-my-vibe/issues)** · **[Author](https://github.com/maklf-dev)**
 
@@ -24,6 +24,18 @@
 Version **1.0.0** is the **cleaned-up, consolidated presentation release**: the interface, styles, scripts, educational content, and **Driver.js** are bundled in one standalone HTML page. The ZIP also includes the Driver.js license notice.
 
 This release is complete as a **self-contained educational presentation**. It is **not** a claim of feature parity with commercial PSpice/OrCAD software or universal SPICE simulation support.
+
+## 🆕 What's new in v1.0.1
+
+This is a focused update to the **lesson navigation and interactive walkthroughs**. The same offline, single-file distribution is retained.
+
+- **Smarter Next button:** when a step requires a supported action, the tour can perform that action and continue once its result is confirmed, rather than stopping with an instruction-only warning.
+- **Enter-key navigation:** pressing **Enter** during an active lesson follows the Next action, including supported automatic operations. Enter can also advance lesson summaries and the installation walkthrough.
+- **Progress through real actions:** completing a relevant operation in the Capture/PSpice-style interface can automatically advance the current teaching step after its expected state is validated.
+- **Smoother installation handoff:** finishing the installation guide marks that lesson complete and starts the following topic directly.
+- **Improved tutorial state handling:** switching to the installation guide clears an obsolete lesson summary, and simulation-profile checks distinguish a visible settings dialog from a hidden one.
+
+**Scope of this release:** tutorial behavior and navigation refinements. It does **not** add a general-purpose SPICE engine, new native Cadence project support, or new simulation methods.
 
 ## ✨ Features
 
@@ -40,6 +52,7 @@ This release is complete as a **self-contained educational presentation**. It is
 
 - **16 learning topics** across **5 categories**, with **57 guided steps**.
 - Step-by-step walkthroughs with highlights, popovers, actions, and learning summaries.
+- Next/Enter navigation, supported automatic step actions, and automatic progression after relevant manual operations.
 - Integrated **Driver.js v1.10.2** for interactive guided tours.
 - A built-in guided-tour fallback if the Driver.js engine cannot be initialized.
 - Searchable lesson catalog, progress tracking, resume, and progress reset.
@@ -67,16 +80,30 @@ External resource links need an internet connection; the **local presentation it
 
 ## 📥 Download and run
 
-1. Click **Download v1.0.0 ZIP** above (or open [Releases](https://github.com/maklf-dev/ohm-my-vibe/releases)).
-2. Download `PSpice_OrCAD_Presentation_v1.0.0.zip`.
+1. Click **Download v1.0.1 ZIP** above (or open [Releases](https://github.com/maklf-dev/ohm-my-vibe/releases)).
+2. Download `PSpice_OrCAD_Presentation_v1.0.1.zip`.
 3. Extract the archive.
 4. Open **`PSpice-OrCAD-Presentation/index.html`** in a modern desktop browser, preferably Chrome or Edge.
 5. Explore the welcome page, enter the Capture-inspired environment, and open the Persian learning center.
-6. Load the sample circuit, validate the connections, create a simulation profile, and try a supported analysis.
+6. During a lesson, use **Next** or **Enter** to progress; for supported operations, interact with the actual UI or let the guided action execute.
+7. Load the sample circuit, validate the connections, create a simulation profile, and try a supported analysis.
 
 **Requirements:** A modern browser with JavaScript enabled. There is **no installer, npm setup, Node.js runtime, backend, CDN, or internet connection required to launch the local app**.
 
 > **Browser note:** Progress persistence under `file://` may vary across browsers and privacy settings. The interface is primarily desktop-oriented; small-screen/mobile layouts are not presented as fully supported.
+
+### ⌨️ Tutorial navigation
+
+| Input | Behavior |
+|---|---|
+| **Next** (in the tour) | Move forward; run a supported action first when required |
+| **Enter** (during a lesson) | Same as Next |
+| **Enter** (in a lesson summary) | Open the next topic, or close the summary at the end |
+| **Enter** (in the installation walkthrough) | Advance the installation steps; finish the guide on the last step |
+| **Manual action in the simulated interface** | Advance once the relevant operation is recognized and validated |
+| **Escape** (during a tour or summary) | Close the active tour or summary |
+
+Some steps still need a specific supported operation before the lesson can advance.
 
 ## 🧭 Suggested learning path
 
@@ -89,7 +116,7 @@ External resource links need an internet connection; the **local presentation it
 
 ## 📦 Distribution contents
 
-The **v1.0.0 release ZIP** contains exactly:
+The **v1.0.1 release ZIP** contains exactly:
 
 ```text
 PSpice-OrCAD-Presentation/
@@ -103,9 +130,9 @@ For a GitHub repository layout, you can place `index.html`, `LICENSE.driver-js.t
 
 ## 🧪 Scope and limitations
 
-| Area | Available in v1.0.0 | Important boundary |
+| Area | Available in v1.0.1 | Important boundary |
 |---|---|---|
-| Interactive learning | 16 topics / 57 steps; bundled Driver.js | Some UI tasks are explanatory only |
+| Interactive learning | 16 topics / 57 steps; bundled Driver.js; Next/Enter + action-aware progression | Some UI tasks are explanatory only |
 | Schematic editing | Supported components, wiring, and validation | Not full OrCAD Capture functionality |
 | File management | Educational JSON import/export | No native `.dsn` / `.opj` support |
 | DC analyses | Reference-circuit Bias Point and DC Sweep | Not arbitrary-circuit simulation |
@@ -113,7 +140,7 @@ For a GitHub repository layout, you can place `index.html`, `LICENSE.driver-js.t
 | Plots | Browser-rendered Probe-style charts and CSV | Not official Cadence Probe |
 | Offline use | Self-contained HTML, no runtime CDN | Browser-local storage may vary |
 
-The JavaScript included in this release passed a **syntax check** during README preparation. This is not a substitute for full functional, cross-browser, accessibility, or numerical-validation testing on users' machines.
+The JavaScript in this release was checked for **syntax validity** during README preparation. This is not a substitute for full functional, cross-browser, accessibility, or numerical-validation testing on users' machines.
 
 ## 🧩 Driver.js: third-party dependency and attribution
 
@@ -131,6 +158,15 @@ This project bundles **[Driver.js](https://driverjs.com/)** **v1.10.2**, a guide
 **Trademark disclaimer:** This project is independent, unofficial, and educational. **Cadence**, **OrCAD**, and **PSpice** are names/trademarks of their respective owners. Their use here identifies the software workflows that inspired the teaching interface. This project is not associated with, sponsored by, endorsed by, or approved by Cadence Design Systems, Inc.
 
 No official Cadence installer or proprietary simulation engine is bundled.
+
+## 🗒️ Release history
+
+| Version | Summary |
+|---|---|
+| **v1.0.1** | Improved tour action handling, keyboard navigation, manual-step recognition, and installation-to-lesson flow |
+| **v1.0.0** | Consolidated offline presentation with embedded Driver.js and the existing educational workspace |
+
+Previous development milestones are available through [GitHub releases](https://github.com/maklf-dev/ohm-my-vibe/releases).
 
 ## 🐛 Feedback
 

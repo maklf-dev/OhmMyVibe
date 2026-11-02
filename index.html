@@ -384,7 +384,7 @@
           <div class="welcome-guide-header"><div><span class="welcome-section-kicker">قدم به قدم</span><h2>مراحل عمومی نصب</h2><p>این مراحل آگاهانه عمومی نوشته شده‌اند، چون پنجره‌های نصب در نسخه‌های مختلف یکسان نیستند.</p></div><div class="welcome-install-choice" role="group" aria-label="انتخاب نسخه برای راهنما"><button type="button" data-install-kind="academic" class="is-selected">OrCAD X</button><button type="button" data-install-kind="ti">PSpice for TI</button></div></div>
           <div class="welcome-installer-grid"><div class="welcome-installer-list" id="welcome-install-steps"></div><div class="welcome-installer-detail" id="welcome-install-detail" aria-live="polite"></div></div>
         </section>
-        <div class="welcome-guide-end"><div><h3>این آموزش را خواندی؟</h3><p>می‌توانی وارد شبیه‌ساز شوی یا پایان مبحث نصب را ثبت کنی تا خلاصه آن نمایش داده شود.</p></div><div><button type="button" id="welcome-finish-install" class="welcome-primary">پایان مبحث نصب و نمایش جمع‌بندی</button><button type="button" id="welcome-enter-from-install" class="welcome-secondary">ورود مستقیم به شبیه‌ساز</button></div></div>
+        <div class="welcome-guide-end"><div><h3>این آموزش را خواندی؟</h3><p>پس از مرور مراحل، با «مبحث بعدی» مستقیماً وارد ادامه آموزش می‌شوی.</p></div><div><button type="button" id="welcome-finish-install" class="welcome-primary">مبحث بعدی</button><button type="button" id="welcome-enter-from-install" class="welcome-secondary">ورود مستقیم به شبیه‌ساز</button></div></div>
       </section>
 </main>
     <footer class="welcome-footer"><span>بازسازی آموزشی غیررسمی · این سایت محصول Cadence نیست.</span><span>طراحی مدار · آموزش مرحله‌ای · شبیه‌سازی</span></footer>
@@ -897,7 +897,7 @@ function check(rule){const S=C.getSnapshot(),P=window.PSpicePhase6;const profile
  case 'reference-loaded':return S.partCount>=5 && S.wireCount>=4;
  case 'wire-mode':return S.mode==='wire';
  case 'attributes-open':return !!document.querySelector('#dialog-root .win-dialog');
- case 'profile-window':return !!document.querySelector('#p6-modal')||!!profile;
+ case 'profile-window':return !!document.querySelector('#p6-modal:not(.hidden)')||!!profile;
  case 'profile-created':return !!profile;
  case 'result-created':return !!result;
  case 'probe-open':return !!result&&!document.querySelector('#p6-probe')?.classList.contains('hidden');
@@ -936,7 +936,7 @@ function ensureWorkspace(topic,stepData){if(window.PSpiceWelcome?.isOpen?.())win
 function driverDispose(){if(!nativeDriver)return;silentDestroy=true;try{nativeDriver.destroy()}catch(e){console.warn('Driver.js cleanup:',e);}finally{nativeDriver=null;silentDestroy=false;}}
 function endPrevious(){driverDispose();$('#edu-guide-layer').classList.add('hidden');}
 function closeTransientDialogs(){C?.closeSoftwareDialog?.();document.querySelector('#p6-modal #p6-dialog-x')?.click();document.querySelector('#p6-probe')?.classList.add('hidden');}
-function startTopic(id,index=0){if(id==='install'&&window.PSpiceWelcome){cancelTour(false);setCollapsed(true);window.PSpiceWelcome.open('install');return;}const topic=catalog.find(t=>t.id===id);if(!topic)return;endPrevious();closeTransientDialogs();$('#edu-summary-backdrop').classList.add('hidden');summaryOpen=false;active={topic:id,index:Math.max(0,Math.min(topic.steps.length-1,Number(index)||0))};problem='';setCollapsed(true);ensureWorkspace(topic,topic.steps[active.index]);tutorialSnapshots=new Map();prepareDriver(topic);renderStep();}
+function startTopic(id,index=0){if(id==='install'&&window.PSpiceWelcome){cancelTour(false);$('#edu-summary-backdrop').classList.add('hidden');summaryOpen=false;setCollapsed(true);window.PSpiceWelcome.open('install');return;}const topic=catalog.find(t=>t.id===id);if(!topic)return;endPrevious();closeTransientDialogs();$('#edu-summary-backdrop').classList.add('hidden');summaryOpen=false;active={topic:id,index:Math.max(0,Math.min(topic.steps.length-1,Number(index)||0))};problem='';setCollapsed(true);ensureWorkspace(topic,topic.steps[active.index]);tutorialSnapshots=new Map();prepareDriver(topic);renderStep();}
 function warningText(rule){const descriptions={
  'new-project-open':'ابتدا پنجره New Project را باز کن.','new-project-form':'ابتدا نام پروژه و نوع Analog or Mixed A/D را انتخاب کن.','project-created':'برای ادامه، ساخت پروژه خالی را با OK تکمیل کن.','part-open':'پنجره Place Part را باز کن.','reference-loaded':'مدار نمونه باید بارگذاری شده و قطعات آن موجود باشند.','wire-mode':'ابتدا ابزار Wire را فعال کن.','attributes-open':'پنجره Display Properties را با دوبارکلیک روی مقاومت باز کن.','profile-window':'پنجره New Simulation را باز کن.','profile-created':'ابتدا پروفایل شبیه‌سازی را ایجاد و ذخیره کن.','result-created':'برای ادامه، تحلیل را اجرا کن.','probe-open':'پنجره Probe و نتیجه شبیه‌سازی باید باز باشند.', 'dc-result':'ابتدا تحلیل DC Sweep را اجرا کن.', 'ac-result':'ابتدا تحلیل AC Sweep مثال RC را اجرا کن.', 'bias-result':'ابتدا Bias Point را اجرا کن.', 'transient-result':'ابتدا Transient را اجرا کن.'};return descriptions[rule]||'عمل این مرحله هنوز انجام نشده است.';}
 function markupStep(t,s,rule){let source='';let action=rule?'برای ادامه، عملکرد این مرحله باید در نرم‌افزار انجام شود.':'برای ادامه، روی «بعدی» کلیک کن.';
@@ -985,7 +985,14 @@ function positionGuide(){if(!active||usingDriver)return;const s=currentLesson().
  Object.assign(p.style,{left:Math.max(10,Math.min(innerWidth-pw-10,px))+'px',top:Math.max(30,Math.min(innerHeight-ph-12,py))+'px'});
 }
 function cancelTour(openMenu=true){tutorialSnapshots.clear();active=null;endPrevious();closeTransientDialogs();problem='';if(openMenu){setCollapsed(false);buildList();}}
-function move(delta){const topic=currentLesson();if(!topic)return;const rule=planFor(topic.id,active.index);if(delta>0&&rule&&!check(rule)){problem='⚠ '+warningText(rule);updateFeedback();return;}
+function move(delta,{autoPerform=true}={}){const topic=currentLesson();if(!topic)return;
+ const rule=planFor(topic.id,active.index);
+ if(delta>0&&rule&&!check(rule)){
+  // Next and Enter have the same behaviour as the visible action button.
+  const cmd=actionFor(topic.steps[active.index],rule);
+  if(autoPerform&&cmd){executeAction(cmd);return;}
+  problem='⚠ '+warningText(rule);updateFeedback();return;
+ }
  const next=active.index+delta;if(next<0)return;if(next>=topic.steps.length){finishTopic();return;}
  // Restore the real circuit and analysis state captured at the beginning of that step.
  if(delta<0){restoreLessonState(tutorialSnapshots.get(next));for(const key of [...tutorialSnapshots.keys()])if(key>next)tutorialSnapshots.delete(key);}
@@ -1014,7 +1021,71 @@ function renderSummary(topic){summaryOpen=true;$('#edu-summary-title').textConte
  const idx=catalog.indexOf(topic);$('#edu-summary-next').disabled=idx===catalog.length-1;$('#edu-summary-next').textContent=idx===catalog.length-1?'تمام مباحث':'مبحث بعدی: '+catalog[idx+1].title;$('#edu-summary-backdrop').classList.remove('hidden');}
 function closeSummary(){summaryOpen=false;$('#edu-summary-backdrop').classList.add('hidden');setCollapsed(false);buildList();}
 function completeExternal(id){const topic=catalog.find(t=>t.id===id);if(!topic)return;active=null;endPrevious();if(!store.completed.includes(id))store.completed.push(id);store.last=null;persist();renderSummary(topic);buildList();}
-function executeAction(cmd){if(!active||!cmd)return;try{cmd.run();problem='';if(usingDriver){setTimeout(()=>{if(active){updateFeedback();addDriverAction();}},60)}else requestAnimationFrame(positionGuide);}catch(e){problem='⚠ '+e.message;updateFeedback();}}
+function continueAfterExternal(id){
+ const topic=catalog.find(t=>t.id===id);if(!topic)return;
+ active=null;endPrevious();closeTransientDialogs();summaryOpen=false;
+ $('#edu-summary-backdrop').classList.add('hidden');
+ if(!store.completed.includes(id))store.completed.push(id);
+ store.last=null;persist();buildList();
+ const next=catalog[catalog.indexOf(topic)+1];
+ if(next)startTopic(next.id);else setCollapsed(false);
+}
+function advanceAfterAction(topicId,stepIndex){
+ if(!active||active.topic!==topicId||active.index!==stepIndex)return;
+ const rule=planFor(topicId,stepIndex);
+ if(!rule||check(rule)){problem='';move(1,{autoPerform:false});}
+ else{problem='⚠ '+warningText(rule);updateFeedback();}
+}
+function executeAction(cmd){if(!active||!cmd)return;
+ const topicId=active.topic,stepIndex=active.index;
+ try{
+  cmd.run();problem='';
+  // Give the software dialog/renderer time to finish before changing the tour target.
+  setTimeout(()=>advanceAfterAction(topicId,stepIndex),100);
+ }catch(e){problem='⚠ '+e.message;updateFeedback();}
+}
+function matchesDemoOutcome(stepData){
+ if(!stepData?.demo)return false;
+ if(stepData.demo==='switch-capture')return C.getSnapshot().workspace==='capture';
+ if(stepData.demo==='load-demo')return check('reference-loaded');
+ if(stepData.demo==='new-project')return check('new-project-open');
+ if(stepData.demo==='part')return check('part-open');
+ return false;
+}
+function isRelevantManualOperation(e,rule){
+ const controls={
+  'new-project-open':'[data-act="new-project"],[data-act="new"]',
+  'new-project-form':'#create-next',
+  'project-created':'#blank-ok',
+  'part-open':'[data-act="part"]',
+  'reference-loaded':'[data-act="load-demo"]',
+  'wire-mode':'[data-act="wire"]',
+  'attributes-open':'#capture-svg .component[data-id="R1"]',
+  'profile-window':'[data-act="profile"]',
+  'result-created':'[data-act="play"]',
+  'probe-open':'[data-act="probe"],[data-act="play"]',
+  'dc-result':'[data-act="play"]',
+  'ac-result':'[data-act="play"]',
+  'bias-result':'[data-act="play"]',
+  'transient-result':'[data-act="play"]'
+ };
+ if(rule==='wire-mode'&&e.type==='keyup'&&e.key?.toLowerCase()==='w')return true;
+ if(rule==='profile-created'&&e.target.closest?.('#p6-modal button'))return true;
+ return !!(controls[rule]&&e.target.closest?.(controls[rule]));
+}
+function watchManualAction(e){
+ if(!active||summaryOpen||window.PSpiceWelcome?.isOpen?.())return;
+ if(e.target.closest?.('.driver-popover,#edu-guide-layer,#edu-shell,#edu-summary-backdrop,#welcome-root'))return;
+ const topicId=active.topic,stepIndex=active.index;
+ const stepData=currentLesson()?.steps[stepIndex],rule=planFor(topicId,stepIndex);
+ if(!rule&&!stepData?.demo)return;
+ // Already-satisfied steps advance only after their *relevant* software action.
+ if(rule&&check(rule)&&!isRelevantManualOperation(e,rule))return;
+ setTimeout(()=>{
+  if(!active||active.topic!==topicId||active.index!==stepIndex)return;
+  if((rule&&check(rule))||(!rule&&matchesDemoOutcome(stepData)))advanceAfterAction(topicId,stepIndex);
+ },80);
+}
 function doDemo(){const topic=currentLesson();if(!topic)return;executeAction(actionFor(topic.steps[active.index],planFor(topic.id,active.index)));}
 // Create an independent Driver.js instance for each lesson. The previous implementation
 // destroyed the only instance on every start, silently reverting to the internal guide.
@@ -1048,11 +1119,29 @@ function bind(){const shell=$('#edu-shell');$('#edu-collapse').addEventListener(
  $('#edu-summary-close').addEventListener('click',closeSummary);$('#edu-summary-next').addEventListener('click',()=>{const idx=catalog.findIndex(t=>t.title===$('#edu-summary-title').textContent);if(idx>=0&&idx+1<catalog.length)startTopic(catalog[idx+1].id);else closeSummary()});
  const h=$('#edu-drag-handle');h.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;const r=shell.getBoundingClientRect();dragging={dx:e.clientX-r.left,dy:e.clientY-r.top};h.setPointerCapture(e.pointerId);shell.classList.add('dragging')});h.addEventListener('pointermove',e=>{if(dragging)setPosition(e.clientX-dragging.dx,e.clientY-dragging.dy)});
  const end=()=>{dragging=null;shell.classList.remove('dragging')};h.addEventListener('pointerup',end);h.addEventListener('pointercancel',end);
- document.addEventListener('keydown',e=>{if(!active&&!summaryOpen)return;if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();if(active)cancelTour();else closeSummary();}},true);
+ // Keyboard navigation is identical to clicking Next, including automatic operations.
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.repeat&&!e.ctrlKey&&!e.altKey&&!e.metaKey&&!e.shiftKey){
+   if(active){e.preventDefault();e.stopImmediatePropagation();move(1);return;}
+   if(summaryOpen){e.preventDefault();e.stopImmediatePropagation();
+    const next=$('#edu-summary-next');if(next&&!next.disabled)next.click();else closeSummary();return;
+   }
+   if(window.PSpiceWelcome?.isInstallOpen?.()){
+    e.preventDefault();e.stopImmediatePropagation();window.PSpiceWelcome.nextInstallStep();return;
+   }
+  }
+  if(!active&&!summaryOpen)return;
+  if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();if(active)cancelTour();else closeSummary();}
+ },true);
+ // Clicking a real Capture/PSpice control advances as soon as its effect is valid.
+ ['click','dblclick','change','keyup'].forEach(name=>document.addEventListener(name,e=>{
+  if(name==='keyup'&&(e.key==='Enter'||e.key==='Escape'))return;
+  watchManualAction(e);
+ },true));
  window.addEventListener('resize',()=>{if(active)positionGuide();if(store.location)setPosition(store.location.x,store.location.y)});
 }
 initDriver();if(store.location)requestAnimationFrame(()=>setPosition(store.location.x,store.location.y));setCollapsed(store.collapsed);bind();buildList();
-window.PSpiceTutorial=Object.freeze({getCatalog:()=>catalog.map(t=>({id:t.id,category:t.category,title:t.title,pages:t.pages,status:t.status,steps:t.steps.length})),start:startTopic,close:cancelTour,completeExternal,getProgress:()=>({completed:[...store.completed],last:store.last}),getActive:()=>active?{...active}:null,getGuideEngine:()=>usingDriver?'Official Driver.js':'Offline integrated guide',verifyStep:()=>active?check(planFor(active.topic,active.index)):false});
+window.PSpiceTutorial=Object.freeze({getCatalog:()=>catalog.map(t=>({id:t.id,category:t.category,title:t.title,pages:t.pages,status:t.status,steps:t.steps.length})),start:startTopic,close:cancelTour,completeExternal,continueAfterExternal,getProgress:()=>({completed:[...store.completed],last:store.last}),getActive:()=>active?{...active}:null,getGuideEngine:()=>usingDriver?'Official Driver.js':'Offline integrated guide',verifyStep:()=>active?check(planFor(active.topic,active.index)):false});
 })();
 
 </script>
@@ -1089,13 +1178,13 @@ let currentTab='overview',kind='academic',currentStep=0;
 function show(tab){const available=['overview','install'];if(!available.includes(tab))tab='overview';currentTab=tab;root.classList.remove('hidden');root.setAttribute('aria-hidden','false');document.querySelectorAll('.welcome-view').forEach(el=>el.classList.toggle('hidden',el.id!=='home-'+tab));document.querySelectorAll('.welcome-tabs [data-home-tab]').forEach(el=>{const selected=el.dataset.homeTab===tab;el.classList.toggle('is-active',selected);if(selected)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});$('#welcome-scroll').scrollTop=0;}
 function close(){root.classList.add('hidden');root.setAttribute('aria-hidden','true');}
 function startApp(){close();window.PSpiceCaptureBridge?.switchWorkspace?.('pspice');}
-function finishInstall(){close();window.PSpiceTutorial?.completeExternal?.('install');}
-function drawSteps(){const body=$('#welcome-install-steps');body.innerHTML=stepDefinitions.map((s,i)=>`<button type="button" data-install-step="${i}" class="${currentStep===i?'active':''}" aria-current="${currentStep===i?'step':'false'}"><b>${String(i+1).padStart(2,'0')}</b><span>${s.title}</span></button>`).join('');const s=stepDefinitions[currentStep];const detail=versionDetails[kind]?.[currentStep]||s.description;$('#welcome-install-detail').innerHTML=`<span class="w-step-counter">${kind==='academic'?'OrCAD X Academic':'PSpice for TI'} · مرحله ${currentStep+1} از ۶</span><h3>${s.title}</h3><p>${detail}</p><div class="w-step-caution">${s.note}</div><div class="w-step-actions"><button type="button" data-step-delta="-1" ${currentStep===0?'disabled':''}>مرحله قبل</button><button type="button" data-step-delta="1" ${currentStep===stepDefinitions.length-1?'disabled':''}>مرحله بعد</button></div>`;document.querySelectorAll('[data-install-kind]').forEach(el=>el.classList.toggle('is-selected',el.dataset.installKind===kind));}
-root.addEventListener('click',event=>{const tab=event.target.closest('[data-home-tab]');if(tab){show(tab.dataset.homeTab);return;}const selectedKind=event.target.closest('[data-install-kind]');if(selectedKind){kind=selectedKind.dataset.installKind;currentStep=0;drawSteps();return;}const selectedStep=event.target.closest('[data-install-step]');if(selectedStep){currentStep=Number(selectedStep.dataset.installStep);drawSteps();return;}const delta=event.target.closest('[data-step-delta]');if(delta){currentStep=Math.max(0,Math.min(stepDefinitions.length-1,currentStep+Number(delta.dataset.stepDelta)));drawSteps();return;}});
+function finishInstall(){close();window.PSpiceTutorial?.continueAfterExternal?.('install');}
+function drawSteps(){const body=$('#welcome-install-steps');body.innerHTML=stepDefinitions.map((s,i)=>`<button type="button" data-install-step="${i}" class="${currentStep===i?'active':''}" aria-current="${currentStep===i?'step':'false'}"><b>${String(i+1).padStart(2,'0')}</b><span>${s.title}</span></button>`).join('');const s=stepDefinitions[currentStep];const detail=versionDetails[kind]?.[currentStep]||s.description;$('#welcome-install-detail').innerHTML=`<span class="w-step-counter">${kind==='academic'?'OrCAD X Academic':'PSpice for TI'} · مرحله ${currentStep+1} از ۶</span><h3>${s.title}</h3><p>${detail}</p><div class="w-step-caution">${s.note}</div><div class="w-step-actions"><button type="button" data-step-delta="-1" ${currentStep===0?'disabled':''}>مرحله قبل</button><button type="button" data-step-delta="1">${currentStep===stepDefinitions.length-1?'مبحث بعدی':'مرحله بعد'}</button></div>`;document.querySelectorAll('[data-install-kind]').forEach(el=>el.classList.toggle('is-selected',el.dataset.installKind===kind));}
+root.addEventListener('click',event=>{const tab=event.target.closest('[data-home-tab]');if(tab){show(tab.dataset.homeTab);return;}const selectedKind=event.target.closest('[data-install-kind]');if(selectedKind){kind=selectedKind.dataset.installKind;currentStep=0;drawSteps();return;}const selectedStep=event.target.closest('[data-install-step]');if(selectedStep){currentStep=Number(selectedStep.dataset.installStep);drawSteps();return;}const delta=event.target.closest('[data-step-delta]');if(delta){const dir=Number(delta.dataset.stepDelta);if(dir>0&&currentStep===stepDefinitions.length-1){finishInstall();return;}currentStep=Math.max(0,Math.min(stepDefinitions.length-1,currentStep+dir));drawSteps();return;}});
 ['welcome-start-main','welcome-enter-top','welcome-enter-from-install'].forEach(id=>$('#'+id).addEventListener('click',startApp));$('#welcome-finish-install').addEventListener('click',finishInstall);
 const home=$('#edu-home');if(home)home.addEventListener('click',()=>{window.PSpiceTutorial?.close?.();show('overview');});
 drawSteps();show('overview');
-window.PSpiceWelcome=Object.freeze({open:show,close,isOpen:()=>!root.classList.contains('hidden'),goToApp:startApp});
+window.PSpiceWelcome=Object.freeze({open:show,close,isOpen:()=>!root.classList.contains('hidden'),isInstallOpen:()=>!root.classList.contains('hidden')&&currentTab==='install',nextInstallStep:()=>{if(currentStep===stepDefinitions.length-1)finishInstall();else{currentStep++;drawSteps();}},goToApp:startApp});
 })();
 
 </script>
